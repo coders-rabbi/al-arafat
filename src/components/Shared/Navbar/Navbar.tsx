@@ -23,9 +23,9 @@ const Navbar = () => {
           color="secondary.main"
         >
           <Box component="span" color="primary.main">
-            Al
+            AL
           </Box>{" "}
-          Arafat
+          ARAFAT
         </Typography>
 
         <Stack direction="row" spacing={2}>
