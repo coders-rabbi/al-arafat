@@ -45,7 +45,7 @@ const HeroSection = () => {
         }}
       >
         <Typography variant="h3" component="h1" fontWeight={700} color="white">
-          আল-আরাফা ফাউন্ডেশন
+          আল-আরাফাত ফাউন্ডেশন
         </Typography>
         <Typography variant="h6" component="p" mt={2} color="white">
           আল-আরাফাত ফাউন্ডেশন একটি অরাজনৈতিক, অলাভজনক শিক্ষা, দাওয়াহ ও পূর্ণত{" "}
