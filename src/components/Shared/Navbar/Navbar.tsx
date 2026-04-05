@@ -2,12 +2,14 @@ import { Box, Button, Container, Link, Stack, Typography } from "@mui/material";
 
 const Navbar = () => {
   return (
-    <Container>
+    <Container
+      sx={{ position: "absolute", zIndex: 1, top: 0, left: 0, right: 0 }}
+    >
       <Stack
         py={3}
         px={2}
         my={2}
-        bgcolor="secondary.main"
+        bgcolor="white"
         borderRadius={2}
         direction="row"
         justifyContent="space-between"
@@ -18,7 +20,7 @@ const Navbar = () => {
           component={Link}
           href="/"
           fontWeight={600}
-          color="white"
+          color="secondary.main"
         >
           <Box component="span" color="primary.main">
             Al
@@ -27,14 +29,19 @@ const Navbar = () => {
         </Typography>
 
         <Stack direction="row" spacing={2}>
-          <Typography component={Link} href="/" variant="body1" color="white">
+          <Typography
+            component={Link}
+            href="/"
+            variant="body1"
+            color="secondary.main"
+          >
             হোম
           </Typography>
           <Typography
             component={Link}
             href="/about"
             variant="body1"
-            color="white"
+            color="secondary.main"
           >
             আমাদের সম্পর্কে
           </Typography>
@@ -42,7 +49,7 @@ const Navbar = () => {
             component={Link}
             href="/events"
             variant="body1"
-            color="white"
+            color="secondary.main"
           >
             কার্যক্রম
           </Typography>
@@ -50,7 +57,7 @@ const Navbar = () => {
             component={Link}
             href="/gallery"
             variant="body1"
-            color="white"
+            color="secondary.main"
           >
             গ্যালারি
           </Typography>
@@ -58,7 +65,7 @@ const Navbar = () => {
             component={Link}
             href="/join"
             variant="body1"
-            color="white"
+            color="secondary.main"
           >
             আমাদের সাথে যুক্ত হোন
           </Typography>
@@ -66,7 +73,7 @@ const Navbar = () => {
             component={Link}
             href="/blog"
             variant="body1"
-            color="white"
+            color="secondary.main"
           >
             ব্লগ
           </Typography>
@@ -74,7 +81,7 @@ const Navbar = () => {
             component={Link}
             href="/notice"
             variant="body1"
-            color="white"
+            color="secondary.main"
           >
             নোটিশ
           </Typography>
@@ -82,7 +89,7 @@ const Navbar = () => {
             component={Link}
             href="/contact"
             variant="body1"
-            color="white"
+            color="secondary.main"
           >
             যোগাযোগ
           </Typography>

@@ -1,11 +1,19 @@
-import React from 'react';
+import { Box, Container, Stack } from "@mui/material";
+import Image from "next/image";
 
 const Footer = () => {
-    return (
-        <div>
-            <h1>Al Arafa Footer</h1>
-        </div>
-    );
+  return (
+    <Box>
+      <Container>
+        <Stack>
+          {/* <Image src={} alt="logo" /> */}
+        </Stack>
+        <Stack></Stack>
+        <Stack></Stack>
+        <Stack></Stack>
+      </Container>
+    </Box>
+  );
 };
 
 export default Footer;
