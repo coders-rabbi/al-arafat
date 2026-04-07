@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google"; // Geist এর বদলে Inter ব্যবহার করা হয়েছে
 import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import Providers from "@/lib/Providers/Providers";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Next.js 14-এ Inter ফন্টটি অনেক বেশি স্টেবল
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -26,15 +22,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Providers>
-      <html
-        lang="en"
-        className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      >
-        <body className="min-h-full flex flex-col">
-          <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
-        </body>
-      </html>
-    </Providers>
+    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col">
+        {/* Providers এবং AppRouterCacheProvider এর ক্রমানুসার ঠিক করা হয়েছে */}
+        <AppRouterCacheProvider>
+          <Providers>
+            {children}
+          </Providers>
+        </AppRouterCacheProvider>
+      </body>
+    </html>
   );
 }
