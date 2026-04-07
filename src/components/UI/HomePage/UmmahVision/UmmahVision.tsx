@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import eduIcon from "@/assets/icon/edu.jpg";
 import handShakeIcon from "@/assets/icon/handshake.jpg";
@@ -102,6 +102,11 @@ const UmmahVision = () => {
           </Box>
         </Box>
       </Stack>
+      <Box textAlign="center" mt={5}>
+        <Button variant="contained" sx={{ mt: 4 }}>
+          আরোও জানুন
+        </Button>
+      </Box>
     </Container>
   );
 };
