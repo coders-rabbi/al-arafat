@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 
 const nextConfig = {
   /* config options here */
+  transpilePackages: ['@mui/icons-material', '@mui/material'],
   images: {
     remotePatterns: [
       {
@@ -26,6 +27,7 @@ const nextConfig = {
     };
     return config;
   },
+  turbopack: {},
 };
 
 export default nextConfig;
