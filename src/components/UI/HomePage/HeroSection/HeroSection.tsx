@@ -44,7 +44,12 @@ const HeroSection = () => {
           paddingLeft: { xs: "20px", md: "80px" },
         }}
       >
-        <Typography variant="h3" component="h1" fontWeight={700} color="white">
+        <Typography
+          sx={{ fontSize: { xs: "30px", md: "60px" } }}
+          component="h1"
+          fontWeight={700}
+          color="white"
+        >
           আল-আরাফাত ফাউন্ডেশন
         </Typography>
         <Typography variant="h6" component="p" mt={2} color="white">
