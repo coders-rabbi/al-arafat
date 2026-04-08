@@ -1,6 +1,6 @@
 import { Box, Button, Link, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import Hero from "@/assets/images/hero-bg.webp";
+import Hero from "@/assets/images/hero-bg.jpeg";
 
 const HeroSection = () => {
   return (
