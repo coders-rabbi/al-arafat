@@ -31,7 +31,7 @@ const Navbar = () => {
   const menuItems = [
     { label: "হোম", path: "/" },
     { label: "আমাদের সম্পর্কে", path: "/about" },
-    { label: "কার্যক্রম", path: "/events" },
+    { label: "কার্যক্রম", path: "/activities" },
     { label: "গ্যালারি", path: "/gallery" },
     { label: "আমাদের সাথে যুক্ত হোন", path: "/join" },
     { label: "ব্লগ", path: "/blog" },
