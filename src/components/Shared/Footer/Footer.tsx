@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import footerImg from "@/assets/images/footer-image.png"; // নিশ্চিত করুন এটি মসজিদের সিলুয়েট ইমেজ
-import logo from "@/assets/images/footer-logo.png"; // নিশ্চিত করুন এটি আস-সুন্নাহ ফাউন্ডেশনের লোগো
+import logo from "@/assets/images/footer-logo.png"; // নিশ্চিত করুন এটি আল-আরাফাত ফাউন্ডেশনের লোগো
 
 // Icons
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
@@ -22,7 +22,8 @@ const Footer = () => {
     <Box
       component="footer"
       position="relative"
-      mt={10}
+      mt={-12}
+      zIndex={-1}
       sx={{
         backgroundColor: "#0F2920",
         color: "white",
@@ -53,7 +54,14 @@ const Footer = () => {
         />
       </Box>
 
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
+      <Container
+        maxWidth="lg"
+        sx={{
+          position: "relative",
+          zIndex: 2,
+          mt: { xs: "120px", md: "100px" },
+        }}
+      >
         <Grid container spacing={2} justifyContent="space-between">
           {/* Logo and About Column */}
           <Grid item xs={6} md={4}>
@@ -178,7 +186,7 @@ const Footer = () => {
       >
         <Container maxWidth="lg">
           <Typography variant="caption" color="rgba(255, 255, 255, 0.7)">
-            স্বত্ব &copy; 2026 আস-সুন্নাহ ফাউন্ডেশন - সর্ব স্বত্ব সংরক্ষিত।
+            স্বত্ব &copy; 2026 আল-আরাফাত ফাউন্ডেশন - সর্ব স্বত্ব সংরক্ষিত।
           </Typography>
         </Container>
       </Box>
