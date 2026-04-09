@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Card,
   CardActionArea,
   CardContent,
@@ -10,47 +11,220 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import bannerImg from "@/assets/images/activities-banner.jpeg";
+import emergencyRelif from "@/assets/images/emergency-relief.webp";
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 
 const ActivitiesPage = () => {
   return (
-    <Box
-      position="relative"
-      zIndex={10}
-      bgcolor="#0F2920"
-      sx={{ height: "200px" }}
-    >
-      <Box>
-        <Image
-          src={bannerImg}
-          alt="activities"
-          style={{
-            objectFit: "cover",
-            height: "400px",
-            width: "100%",
-            zIndex: "-1",
-          }}
-        />
-      </Box>
-      <Container maxWidth="lg">
-        <Grid2>
-          <Grid2>
-            <Card sx={{ maxWidth: 345 }}>
+    <Box sx={{ height: "100vh" }}>
+      <Container maxWidth="lg" sx={{ mt: "100px" }}>
+        <Grid2 container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 2 }}>
+          <Grid2 size={{ xs: 12, sm: 6, md: 4 }}>
+            <Card sx={{ borderRadius: "20px" }}>
               <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image="/static/images/cards/contemplative-reptile.jpg"
-                  alt="green iguana"
-                />
+                <Image src={emergencyRelif} alt="emeargencyRelif" />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                  <Typography
+                    display="flex"
+                    alignItems="center"
+                    gap="5px"
+                    color="#D08545"
+                    mb="10px"
+                  >
+                    <RocketLaunchIcon /> নিয়মিত কার্যক্রম
                   </Typography>
-                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    fontWeight="bold"
+                    component="div"
+                  >
+                    দুর্যোগে ত্রাণ ও পুনর্বাসন
                   </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "text.secondary", mb: "5px" }}
+                  >
+                    বাংলাদেশ প্রাকৃতিক দুর্যোগপ্রবণ একটি দেশ। প্রতিবছর বন্যা,
+                    ঘূর্ণিঝড়, জলোচ্ছ্বাস, ভূমিধস ও অন্যান্য প্রাকৃতিক বিপর্যয়ে
+                    লক্ষাধিক মানুষ ক্ষতিগ্রস্ত হয়। বিশেষ করে বর্ষাকালে দেশের
+                    প্রায় ২৬,০০০ বর্গকিলোমিটার এলাকা (১৮%) বন্যায় প্লাবিত হয়,
+                  </Typography>
+                  <Button
+                    variant="outlined"
+                    fullWidth
+                    sx={{ mt: "30px", fontWeight: "900" }}
+                  >
+                    বিস্তারিত দেখুন
+                  </Button>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid2>
+          <Grid2 size={{ xs: 12, sm: 6, md: 4 }}>
+            <Card sx={{ borderRadius: "20px" }}>
+              <CardActionArea>
+                <Image src={emergencyRelif} alt="emeargencyRelif" />
+                <CardContent>
+                  <Typography
+                    display="flex"
+                    alignItems="center"
+                    gap="5px"
+                    color="#D08545"
+                    mb="10px"
+                  >
+                    <RocketLaunchIcon /> নিয়মিত কার্যক্রম
+                  </Typography>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    fontWeight="bold"
+                    component="div"
+                  >
+                    দুর্যোগে ত্রাণ ও পুনর্বাসন
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "text.secondary", mb: "5px" }}
+                  >
+                    বাংলাদেশ প্রাকৃতিক দুর্যোগপ্রবণ একটি দেশ। প্রতিবছর বন্যা,
+                    ঘূর্ণিঝড়, জলোচ্ছ্বাস, ভূমিধস ও অন্যান্য প্রাকৃতিক বিপর্যয়ে
+                    লক্ষাধিক মানুষ ক্ষতিগ্রস্ত হয়। বিশেষ করে বর্ষাকালে দেশের
+                    প্রায় ২৬,০০০ বর্গকিলোমিটার এলাকা (১৮%) বন্যায় প্লাবিত হয়,
+                  </Typography>
+                  <Button
+                    variant="outlined"
+                    fullWidth
+                    sx={{ mt: "30px", fontWeight: "900" }}
+                  >
+                    বিস্তারিত দেখুন
+                  </Button>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid2>
+          <Grid2 size={{ xs: 12, sm: 6, md: 4 }}>
+            <Card sx={{ borderRadius: "20px" }}>
+              <CardActionArea>
+                <Image src={emergencyRelif} alt="emeargencyRelif" />
+                <CardContent>
+                  <Typography
+                    display="flex"
+                    alignItems="center"
+                    gap="5px"
+                    color="#D08545"
+                    mb="10px"
+                  >
+                    <RocketLaunchIcon /> নিয়মিত কার্যক্রম
+                  </Typography>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    fontWeight="bold"
+                    component="div"
+                  >
+                    দুর্যোগে ত্রাণ ও পুনর্বাসন
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "text.secondary", mb: "5px" }}
+                  >
+                    বাংলাদেশ প্রাকৃতিক দুর্যোগপ্রবণ একটি দেশ। প্রতিবছর বন্যা,
+                    ঘূর্ণিঝড়, জলোচ্ছ্বাস, ভূমিধস ও অন্যান্য প্রাকৃতিক বিপর্যয়ে
+                    লক্ষাধিক মানুষ ক্ষতিগ্রস্ত হয়। বিশেষ করে বর্ষাকালে দেশের
+                    প্রায় ২৬,০০০ বর্গকিলোমিটার এলাকা (১৮%) বন্যায় প্লাবিত হয়,
+                  </Typography>
+                  <Button
+                    variant="outlined"
+                    fullWidth
+                    sx={{ mt: "30px", fontWeight: "900" }}
+                  >
+                    বিস্তারিত দেখুন
+                  </Button>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid2>
+          <Grid2 size={{ xs: 12, sm: 6, md: 4 }}>
+            <Card sx={{ borderRadius: "20px" }}>
+              <CardActionArea>
+                <Image src={emergencyRelif} alt="emeargencyRelif" />
+                <CardContent>
+                  <Typography
+                    display="flex"
+                    alignItems="center"
+                    gap="5px"
+                    color="#D08545"
+                    mb="10px"
+                  >
+                    <RocketLaunchIcon /> নিয়মিত কার্যক্রম
+                  </Typography>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    fontWeight="bold"
+                    component="div"
+                  >
+                    দুর্যোগে ত্রাণ ও পুনর্বাসন
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "text.secondary", mb: "5px" }}
+                  >
+                    বাংলাদেশ প্রাকৃতিক দুর্যোগপ্রবণ একটি দেশ। প্রতিবছর বন্যা,
+                    ঘূর্ণিঝড়, জলোচ্ছ্বাস, ভূমিধস ও অন্যান্য প্রাকৃতিক বিপর্যয়ে
+                    লক্ষাধিক মানুষ ক্ষতিগ্রস্ত হয়। বিশেষ করে বর্ষাকালে দেশের
+                    প্রায় ২৬,০০০ বর্গকিলোমিটার এলাকা (১৮%) বন্যায় প্লাবিত হয়,
+                  </Typography>
+                  <Button
+                    variant="outlined"
+                    fullWidth
+                    sx={{ mt: "30px", fontWeight: "900" }}
+                  >
+                    বিস্তারিত দেখুন
+                  </Button>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid2>
+          <Grid2 size={{ xs: 12, sm: 6, md: 4 }}>
+            <Card sx={{ borderRadius: "20px" }}>
+              <CardActionArea>
+                <Image src={emergencyRelif} alt="emeargencyRelif" />
+                <CardContent>
+                  <Typography
+                    display="flex"
+                    alignItems="center"
+                    gap="5px"
+                    color="#D08545"
+                    mb="10px"
+                  >
+                    <RocketLaunchIcon /> নিয়মিত কার্যক্রম
+                  </Typography>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    fontWeight="bold"
+                    component="div"
+                  >
+                    দুর্যোগে ত্রাণ ও পুনর্বাসন
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "text.secondary", mb: "5px" }}
+                  >
+                    বাংলাদেশ প্রাকৃতিক দুর্যোগপ্রবণ একটি দেশ। প্রতিবছর বন্যা,
+                    ঘূর্ণিঝড়, জলোচ্ছ্বাস, ভূমিধস ও অন্যান্য প্রাকৃতিক বিপর্যয়ে
+                    লক্ষাধিক মানুষ ক্ষতিগ্রস্ত হয়। বিশেষ করে বর্ষাকালে দেশের
+                    প্রায় ২৬,০০০ বর্গকিলোমিটার এলাকা (১৮%) বন্যায় প্লাবিত হয়,
+                  </Typography>
+                  <Button
+                    variant="outlined"
+                    fullWidth
+                    sx={{ mt: "30px", fontWeight: "900" }}
+                  >
+                    বিস্তারিত দেখুন
+                  </Button>
                 </CardContent>
               </CardActionArea>
             </Card>

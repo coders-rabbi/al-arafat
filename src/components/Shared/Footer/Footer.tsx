@@ -22,7 +22,6 @@ const Footer = () => {
     <Box
       component="footer"
       position="relative"
-      mt={-12}
       zIndex={-1}
       sx={{
         backgroundColor: "#0F2920",
