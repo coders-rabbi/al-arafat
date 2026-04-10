@@ -34,7 +34,7 @@ const Navbar = () => {
     { label: "কার্যক্রম", path: "/activities" },
     { label: "গ্যালারি", path: "/gallery" },
     { label: "আমাদের সাথে যুক্ত হোন", path: "/join" },
-    { label: "ব্লগ", path: "/blog" },
+    { label: "ব্লগ", path: "/blogs" },
     { label: "নোটিশ", path: "/notice" },
     { label: "যোগাযোগ", path: "/contact" },
   ];

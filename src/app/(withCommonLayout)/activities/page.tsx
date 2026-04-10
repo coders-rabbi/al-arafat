@@ -14,7 +14,6 @@ import bannerImg from "@/assets/images/activities-banner.jpeg";
 import emergencyRelif from "@/assets/images/emergency-relief.webp";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import NewsLetter from "@/components/UI/HomePage/NewsLetter/NewsLetter";
-import { green } from "@mui/material/colors";
 
 const ActivitiesPage = () => {
   return (
