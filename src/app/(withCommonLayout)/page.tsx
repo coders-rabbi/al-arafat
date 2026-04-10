@@ -12,8 +12,8 @@ const HomePage = () => {
       <DonationForm />
       <UmmahVision />
       <EventCard />
-      <NewsLetter />
       <BlogCard />
+      <NewsLetter />
     </>
   );
 };
