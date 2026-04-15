@@ -1,3 +1,4 @@
+
 import BlogCard from "@/components/ui/HomePage/BlogCard/BlogCard";
 import DonationForm from "@/components/ui/HomePage/DonationForm/DonationForm";
 import EventCard from "@/components/ui/HomePage/EventCard/EventCard";
@@ -14,7 +15,7 @@ const HomePage = () => {
       <UmmahVision />
       <EventCard />
       <BlogCard />
-      <NewsLetter />
+      <NewsLetter/>
       <CarouselSize />
     </>
   );
