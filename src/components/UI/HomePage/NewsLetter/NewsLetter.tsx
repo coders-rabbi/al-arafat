@@ -64,6 +64,7 @@ const NewsLetter = () => {
           <Grid container spacing={2} alignItems="flex-end" component="div">
             <Grid item xs={12} sm={6} md={9} component="div">
               <TextField
+              required
                 fullWidth
                 placeholder="মোবাইল নম্বর / ইমেইল লিখুন"
                 variant="outlined"

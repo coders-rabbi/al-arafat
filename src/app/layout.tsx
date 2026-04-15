@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"; // Geist এর বদলে Inter ব্যবহার করা হয়েছে
+import { Inter, Geist } from "next/font/google"; // Geist এর বদলে Inter ব্যবহার করা হয়েছে
 import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import Providers from "@/lib/Providers/Providers";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
 
 // Next.js 14-এ Inter ফন্টটি অনেক বেশি স্টেবল
 const inter = Inter({
@@ -22,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={cn("h-full", "antialiased", inter.variable, "font-sans", geist.variable)}>
       <body className="min-h-full flex flex-col">
         {/* Providers এবং AppRouterCacheProvider এর ক্রমানুসার ঠিক করা হয়েছে */}
         <AppRouterCacheProvider>
