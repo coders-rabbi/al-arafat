@@ -17,8 +17,6 @@ const nextConfig = {
       },
     ],
   },
-  // যদি reactCompiler এরর দেয় তবে এটি আপাতত সরিয়ে রাখতে পারেন
-  reactCompiler: true,
   webpack: (config) => {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
