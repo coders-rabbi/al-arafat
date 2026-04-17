@@ -61,7 +61,7 @@ const ActivitiesPage = () => {
             fontWeight="bold"
             sx={{ fontSize: { xs: "2rem", md: "3.5rem" } }}
           >
-            ব্লগ
+            আমাদের কার্যক্রম
           </Typography>
         </Box>
       </Box>
