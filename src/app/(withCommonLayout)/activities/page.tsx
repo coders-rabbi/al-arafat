@@ -1,3 +1,4 @@
+"use client";
 import {
   Box,
   Button,
@@ -12,6 +13,8 @@ import Image from "next/image";
 import bannerImg from "@/assets/images/activities-banner.jpeg";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import emergencyRelif from "@/assets/images/emergency-relief.webp";
+import useBlog from "@/hooks/useBlog";
+import NewsLetter from "@/components/ui/HomePage/NewsLetter/NewsLetter";
 
 export interface BlogItem {
   id: number;
@@ -21,9 +24,14 @@ export interface BlogItem {
   image_url: string;
 }
 
-const ActivitiesPage = async () => {
-  const res = await fetch("http://localhost:5000/blogs");
-  const blogsData: BlogItem[] = await res.json();
+const ActivitiesPage = () => {
+  // const res = await fetch("http://localhost:5000/blogs");
+  // const blogsData: BlogItem[] = await res.json();
+
+  const { blogs, loading, error } = useBlog();
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <Box>
@@ -47,13 +55,13 @@ const ActivitiesPage = async () => {
           justifyContent="center"
           alignItems="center"
         >
-          <Typography 
-            variant="h3" 
-            color="white" 
+          <Typography
+            variant="h3"
+            color="white"
             fontWeight="bold"
             sx={{ fontSize: { xs: "2rem", md: "3.5rem" } }}
           >
-            ব্লগ ({blogsData.length})
+            ব্লগ
           </Typography>
         </Box>
       </Box>
@@ -62,23 +70,29 @@ const ActivitiesPage = async () => {
       <Container sx={{ py: { xs: 4, md: 8 } }}>
         {/* Grid2 Container লুপের বাইরে থাকবে */}
         <Grid2 container spacing={4}>
-          {blogsData.map((item: BlogItem) => (
+          {blogs.map((item: BlogItem) => (
             /* লুপের প্রথম এলিমেন্টে key দিতে হবে */
             <Grid2 key={item.id} size={{ xs: 12, sm: 6, md: 4 }}>
-              <Card 
-                sx={{ 
-                  borderRadius: "20px", 
-                  height: "100%", 
-                  display: "flex", 
+              <Card
+                sx={{
+                  borderRadius: "20px",
+                  height: "100%",
+                  display: "flex",
                   flexDirection: "column",
                   transition: "0.3s",
-                  "&:hover": { boxShadow: 10 } 
+                  "&:hover": { boxShadow: 10 },
                 }}
               >
                 <CardActionArea sx={{ flexGrow: 1 }}>
-                  <Box sx={{ position: 'relative', height: '220px', width: '100%' }}>
-                    <Image 
-                      src={item.image_url || emergencyRelif} 
+                  <Box
+                    sx={{
+                      position: "relative",
+                      height: "220px",
+                      width: "100%",
+                    }}
+                  >
+                    <Image
+                      src={item.image_url || emergencyRelif}
                       alt={item.title}
                       fill
                       style={{ objectFit: "cover" }}
@@ -95,18 +109,18 @@ const ActivitiesPage = async () => {
                     >
                       <RocketLaunchIcon fontSize="small" /> নিয়মিত কার্যক্রম
                     </Typography>
-                    
+
                     <Typography
                       gutterBottom
                       variant="h5"
                       fontWeight="bold"
                       component="div"
-                      sx={{ 
+                      sx={{
                         fontSize: "1.25rem",
-                        display: '-webkit-box',
+                        display: "-webkit-box",
                         WebkitLineClamp: 2,
-                        WebkitBoxOrient: 'vertical',
-                        overflow: 'hidden'
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
                       }}
                     >
                       {item.title}
@@ -114,13 +128,13 @@ const ActivitiesPage = async () => {
 
                     <Typography
                       variant="body2"
-                      sx={{ 
-                        color: "text.secondary", 
+                      sx={{
+                        color: "text.secondary",
                         mb: "15px",
-                        display: '-webkit-box',
+                        display: "-webkit-box",
                         WebkitLineClamp: 3,
-                        WebkitBoxOrient: 'vertical',
-                        overflow: 'hidden'
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
                       }}
                     >
                       {item.description}
@@ -129,11 +143,11 @@ const ActivitiesPage = async () => {
                     <Button
                       variant="outlined"
                       fullWidth
-                      sx={{ 
-                        mt: "auto", 
-                        fontWeight: "bold", 
+                      sx={{
+                        mt: "auto",
+                        fontWeight: "bold",
                         borderRadius: "10px",
-                        textTransform: "none" 
+                        textTransform: "none",
                       }}
                     >
                       বিস্তারিত দেখুন
@@ -144,6 +158,8 @@ const ActivitiesPage = async () => {
             </Grid2>
           ))}
         </Grid2>
+
+        <NewsLetter />
       </Container>
     </Box>
   );

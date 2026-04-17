@@ -1,6 +1,8 @@
+"use client";
+
 import { useState, useEffect } from "react";
 
-// ডাটার টাইপ ডিফাইন করা (Standard Practice)
+// ডাটা টাইপ ডিক্লেয়ারেশন
 export interface BlogItem {
   id: number;
   date: string;
@@ -18,11 +20,11 @@ const useBlog = () => {
     const fetchBlogs = async () => {
       try {
         setLoading(true);
-        // public ফোল্ডার থেকে ডাটা ফেচ করা
-        const response = await fetch("/fake.json");
+        // আপনার API URL: http://localhost:5000/blogs
+        const response = await fetch("http://localhost:5000/blogs");
 
         if (!response.ok) {
-          throw new Error("Failed to fetch blog data");
+          throw new Error("ডাটা ফেচ করতে সমস্যা হয়েছে!");
         }
 
         const data = await response.json();

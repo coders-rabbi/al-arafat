@@ -10,12 +10,19 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Button, CardActionArea, CardContent, Container, Typography, Box } from "@mui/material";
+import {
+  Button,
+  CardActionArea,
+  CardContent,
+  Container,
+  Typography,
+  Box,
+} from "@mui/material";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import Image from "next/image";
 import useBlog, { BlogItem } from "@/hooks/useBlog";
 
-export function CarouselSize() {
+export function EventCarousel() {
   // ১. হুক থেকে ডাটা আনা
   const { blogs, loading, error } = useBlog();
 
@@ -24,10 +31,22 @@ export function CarouselSize() {
   );
 
   if (loading) return <p className="text-center py-10">Loading Carousel...</p>;
-  if (error) return <p className="text-center py-10 text-red-500">Error: {error}</p>;
+  if (error)
+    return <p className="text-center py-10 text-red-500">Error: {error}</p>;
 
   return (
     <Container maxWidth="lg" sx={{ py: 5 }}>
+      <Box mt={15}>
+        <Typography
+          variant="h3"
+          textAlign="center"
+          fontWeight="900"
+          color="secondary.main"
+          mb={8}
+        >
+          চলমান কার্যক্রমসমূহ
+        </Typography>
+      </Box>
       <Carousel
         plugins={[plugin.current]}
         className="w-full"
@@ -47,17 +66,30 @@ export function CarouselSize() {
             >
               <div className="p-2 h-full">
                 <Card className="h-full border-none shadow-md overflow-hidden rounded-[20px]">
-                  <CardActionArea sx={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
+                  <CardActionArea
+                    sx={{
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "stretch",
+                    }}
+                  >
                     {/* ৩. ডাইনামিক ইমেজ */}
-                    <Box sx={{ position: 'relative', height: '200px', width: '100%' }}>
-                        <Image
+                    <Box
+                      sx={{
+                        position: "relative",
+                        height: "200px",
+                        width: "100%",
+                      }}
+                    >
+                      <Image
                         src={item.image_url}
                         alt={item.title}
                         fill
-                        style={{ objectFit: 'cover' }}
-                        />
+                        style={{ objectFit: "cover" }}
+                      />
                     </Box>
-                    
+
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Typography
                         display="flex"
@@ -70,16 +102,16 @@ export function CarouselSize() {
                         <RocketLaunchIcon fontSize="small" /> নিয়মিত কার্যক্রম
                       </Typography>
 
-                      <Typography 
-                        gutterBottom 
-                        variant="h6" 
+                      <Typography
+                        gutterBottom
+                        variant="h6"
                         fontWeight="bold"
                         sx={{
-                            display: '-webkit-box',
-                            WebkitLineClamp: 2,
-                            WebkitBoxOrient: 'vertical',
-                            overflow: 'hidden',
-                            height: '60px' // টাইটেল এলাইনমেন্ট ঠিক রাখতে
+                          display: "-webkit-box",
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                          height: "60px", // টাইটেল এলাইনমেন্ট ঠিক রাখতে
                         }}
                       >
                         {item.title}
@@ -87,13 +119,13 @@ export function CarouselSize() {
 
                       <Typography
                         variant="body2"
-                        sx={{ 
-                            color: "text.secondary", 
-                            mb: "15px",
-                            display: '-webkit-box',
-                            WebkitLineClamp: 3,
-                            WebkitBoxOrient: 'vertical',
-                            overflow: 'hidden'
+                        sx={{
+                          color: "text.secondary",
+                          mb: "15px",
+                          display: "-webkit-box",
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
                         }}
                       >
                         {item.description}
@@ -102,7 +134,11 @@ export function CarouselSize() {
                       <Button
                         variant="outlined"
                         fullWidth
-                        sx={{ mt: "auto", fontWeight: "900", borderRadius: '10px' }}
+                        sx={{
+                          mt: "auto",
+                          fontWeight: "900",
+                          borderRadius: "10px",
+                        }}
                       >
                         বিস্তারিত দেখুন
                       </Button>
@@ -113,11 +149,11 @@ export function CarouselSize() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        
+
         {/* ৪. অ্যারো বাটনগুলো ছোট স্ক্রিনে হাইড রাখা ভালো বা পজিশন ঠিক করা */}
         <div className="hidden md:block">
-            <CarouselPrevious />
-            <CarouselNext />
+          <CarouselPrevious />
+          <CarouselNext />
         </div>
       </Carousel>
     </Container>
