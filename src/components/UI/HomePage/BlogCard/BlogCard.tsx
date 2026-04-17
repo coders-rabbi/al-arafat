@@ -2,7 +2,11 @@ import { Card, CardContent, Container, Grid2, Typography } from "@mui/material";
 import Image from "next/image";
 import post from "@/assets/images/blog1.webp";
 
-const BlogCard = () => {
+
+const BlogCard = async () => {
+  // const res = await fetch("/blogFake.json");
+  // const data = await res.json();
+  // console.log(data);
   return (
     <Container>
       <Card

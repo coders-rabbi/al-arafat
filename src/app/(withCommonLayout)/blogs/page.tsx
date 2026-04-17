@@ -13,26 +13,6 @@ import post from "@/assets/images/blog1.webp";
 const BlogPage = () => {
   return (
     <Box>
-      <Box position="relative">
-        <Box sx={{ height: "400px", overflow: "hidden" }}>
-          <Image src={blogbanner} alt="blogbanner" style={{ width: "100%" }} />
-        </Box>
-        <Box
-          bgcolor="rgba(0, 0, 0, 0.8)"
-          width="100%"
-          height="100%"
-          position="absolute"
-          top={0}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Typography variant="h3" color="white" fontWeight="bold">
-            ব্লগ
-          </Typography>
-        </Box>
-      </Box>
-
       <Container>
         <Card
           sx={{
@@ -114,9 +94,7 @@ const BlogPage = () => {
         </Card>
       </Container>
 
-      <Container>
-        
-      </Container>
+      <Container></Container>
     </Box>
   );
 };
