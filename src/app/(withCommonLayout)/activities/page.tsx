@@ -14,7 +14,7 @@ import bannerImg from "@/assets/images/activities-banner.jpeg";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import emergencyRelif from "@/assets/images/emergency-relief.webp";
 import useBlog from "@/hooks/useBlog";
-import NewsLetter from "@/components/ui/HomePage/NewsLetter/NewsLetter";
+import NewsLetter from "@/components/ui/HomePage/newsLetter/newsLetter";
 
 export interface BlogItem {
   id: number;
