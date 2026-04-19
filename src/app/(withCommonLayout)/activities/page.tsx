@@ -56,7 +56,7 @@ const ActivitiesPage = () => {
           alignItems="center"
         >
           <Typography
-            variant="h3"
+            variant="h4"
             color="white"
             fontWeight="bold"
             sx={{ fontSize: { xs: "2rem", md: "3.5rem" } }}
