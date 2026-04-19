@@ -21,7 +21,7 @@ const useBlog = () => {
       try {
         setLoading(true);
         // আপনার API URL: http://localhost:5000/blogs
-        const response = await fetch("http://localhost:5000/blogs");
+        const response = await fetch("https://al-arafatfoundation-server.vercel.app/blogs");
 
         if (!response.ok) {
           throw new Error("ডাটা ফেচ করতে সমস্যা হয়েছে!");
