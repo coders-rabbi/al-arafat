@@ -15,6 +15,8 @@ import {
 } from "@mui/material";
 import Link from "next/link"; // Next.js Link ব্যবহার করা হয়েছে
 import MenuIcon from "@mui/icons-material/Menu";
+import logo from "@/assets/svg/logo.svg"
+import Image from "next/image";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -41,27 +43,38 @@ const Navbar = () => {
 
   const drawer = (
     <Box sx={{ width: 250, p: 2 }} role="presentation">
-      <Typography variant="h6" sx={{ my: 2, fontWeight: "bold", textAlign: "center", color: "secondary.main" }}>
+      <Typography
+        variant="h6"
+        sx={{
+          my: 2,
+          fontWeight: "bold",
+          textAlign: "center",
+          color: "secondary.main",
+        }}
+      >
         AL ARAFAT
       </Typography>
       <List>
         {menuItems.map((item) => (
           <ListItem key={item.label} disablePadding>
-            <ListItemButton 
-              component={Link} 
-              href={item.path} 
+            <ListItemButton
+              component={Link}
+              href={item.path}
               onClick={() => setMobileOpen(false)}
             >
-              <ListItemText primary={item.label} sx={{ color: "secondary.main" }} />
+              <ListItemText
+                primary={item.label}
+                sx={{ color: "secondary.main" }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
-      <Button 
-        component={Link} 
-        href="/donate" 
-        variant="contained" 
-        fullWidth 
+      <Button
+        component={Link}
+        href="/donate"
+        variant="contained"
+        fullWidth
         sx={{ mt: 2 }}
         onClick={() => setMobileOpen(false)}
       >
@@ -94,15 +107,18 @@ const Navbar = () => {
         boxShadow="0px 4px 12px rgba(0,0,0,0.1)"
         sx={{ pointerEvents: "auto" }} // শুধুমাত্র নেভবার স্ট্যাক ক্লিক গ্রহণ করবে
       >
-        <Typography
+        {/* <Typography
           variant="h5"
           component={Link}
           href="/"
           sx={{ fontWeight: 600, textDecoration: "none", color: "secondary.main" }}
         >
           <Box component="span" sx={{ color: "primary.main" }}>AL</Box> ARAFAT
-        </Typography>
+        </Typography> */}
 
+        <Box>
+          <Image src={logo} alt="logo" width={42}/>
+        </Box>
         <Stack
           direction="row"
           spacing={2}
@@ -117,7 +133,7 @@ const Navbar = () => {
               sx={{
                 color: "secondary.main",
                 textDecoration: "none",
-                fontWeight: 500,
+                fontWeight: 700,
                 "&:hover": { color: "primary.main" },
               }}
             >
