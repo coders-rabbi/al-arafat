@@ -8,7 +8,7 @@ const NoticeBoardPage = () => {
   return (
     <Box>
       <Box position="relative">
-        <Box sx={{ height: { xs: "250px", md: "400px" }, overflow: "hidden" }}>
+        <Box sx={{ height: { xs: "350px", md: "400px" }, overflow: "hidden" }}>
           <Image
             src={blogbanner}
             alt="blogbanner"
