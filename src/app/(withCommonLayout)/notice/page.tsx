@@ -30,12 +30,12 @@ const NoticeBoardPage = () => {
             <Typography
               variant="h3"
               color="white"
-              fontWeight="bold"
-              sx={{ fontSize: { xs: "2rem", md: "3.5rem" } }}
+              fontWeight="700"
+              sx={{ fontSize: { xs: "1.5rem", md: "2.5rem" } }}
             >
               নোটিশ বোর্ড
             </Typography>
-            <Typography variant="h5" color="white" sx={{ mt: 1 }}>
+            <Typography variant="h6" color="white" sx={{ mt: 1 }}>
               আল-আরাফাত ফাউন্ডেশনের সর্বশেষ ঘোষণা ও নোটিশসমূহ দেখুন
             </Typography>
           </Box>

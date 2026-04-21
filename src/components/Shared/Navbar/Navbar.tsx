@@ -117,7 +117,7 @@ const Navbar = () => {
         </Typography> */}
 
         <Box>
-          <Image src={logo} alt="logo" width={42}/>
+          <Image src={logo} alt="logo" width={50}/>
         </Box>
         <Stack
           direction="row"

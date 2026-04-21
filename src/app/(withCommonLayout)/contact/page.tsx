@@ -24,12 +24,12 @@ const contact = () => {
     {
       icon: <PhoneIcon sx={{ color: "white" }} />,
       label: "ফোন",
-      value: "+৮৮০১৩০৩৩২৯৪১৩",
+      value: "+৮৮০১৩৩০৬৮০৪০৫",
     },
     {
       icon: <LocationOnIcon sx={{ color: "white" }} />,
       label: "ঠিকানা",
-      value: "কাফরুল থানার বিপরিত পাশে, মিরপুর-১৪, ঢাকা ১২১২।",
+      value: "উখিয়া কক্সবাজার, চিটাগং বাংলাদেশ",
     },
     {
       icon: <EmailIcon sx={{ color: "white" }} />,
