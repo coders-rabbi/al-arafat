@@ -2,202 +2,186 @@
 import {
   Box,
   Container,
-  Grid,
+  Grid2,
   IconButton,
-  Link,
   Stack,
   Typography,
 } from "@mui/material";
 import Image from "next/image";
-import footerImg from "@/assets/images/footer-image.png"; // নিশ্চিত করুন এটি মসজিদের সিলুয়েট ইমেজ
-import logo from "@/assets/images/footer-logo.png"; // নিশ্চিত করুন এটি আল-আরাফাত ফাউন্ডেশনের লোগো
+import footerImg from "@/assets/images/footer-image.png";
+import logo from "@/assets/svg/logo.svg";
 
 // Icons
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import Link from "next/link";
 
 const Footer = () => {
+  const linkStyle = {
+    display: "block",
+    color: "white",
+    textDecoration: "none",
+    fontSize: "14px",
+    marginTop: "12px",
+    opacity: 0.8,
+  };
+
   return (
-    <Container maxWidth="lg" sx={{ mt: "100px" }}>
-      <Typography sx={{ textAlign: "center" }}>
-        স্বত্ব &copy; 2026 আল-আরাফাত ফাউন্ডেশন - সর্ব স্বত্ব সংরক্ষিত।{" "}
-      </Typography>{" "}
-    </Container>
+    <Box component="footer" sx={{ bgcolor: "#0F2920", color: "white", mt: 5 }}>
+      <Box position="relative">
+        {/* Background Image Area */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: 1,
+          }}
+        >
+          <Image
+            src={footerImg}
+            alt="Footer Background"
+            fill
+            style={{ objectFit: "cover" }} // ইমেজটি ব্যাকগ্রাউন্ড হিসেবে সেট করা হয়েছে
+          />
+        </Box>
 
-    //Permanent Desing
-    // <Box
-    //   component="footer"
-    //   position="relative"
-    //   mt={-12}
-    //   zIndex={-1}
-    //   sx={{
-    //     backgroundColor: "#0F2920",
-    //     color: "white",
-    //     pt: { xs: 3, md: 10 },
-    //     pb: { xs: 3, md: 2 },
-    //     overflow: "hidden",
-    //   }}
-    // >
-    //   <Box
-    //     position="absolute"
-    //     top={0}
-    //     left={0}
-    //     width="100%"
-    //     height="100%"
-    //     zIndex={100}
-    //     sx={{
-    //       display: "flex",
-    //       justifyContent: "center",
-    //       alignItems: "flex-end", // মসজিদের সিলুয়েট ফুটারে নিচে থাকবে
-    //     }}
-    //   >
-    //     <Image
-    //       src={footerImg}
-    //       alt="footer silhouette"
-    //       width={1920} // একটি বড় উইডথ দিন যাতে পুরো স্ক্রিন কভার করে
-    //       height={400}
-    //       style={{ objectFit: "contain", width: "100%", height: "auto" }}
-    //     />
-    //   </Box>
+        {/* Content Area */}
+        <Container
+          maxWidth="lg"
+          sx={{ zIndex: 2, position: "relative", py: 8 }}
+        >
+          <Grid2
+            container
+            spacing={4}
+            alignItems="center"
+            justifyItems="center"
+            justifyContent="center"
+          >
+            {/* Logo and Description */}
+            <Grid2 size={{ xs: 12, md: 3 }}>
+              <Box mb={3}>
+                <Image
+                  src={logo}
+                  alt="logo"
+                  style={{
+                    width: "100px",
+                    height: "auto",
+                    borderRadius: "50%",
+                  }}
+                />
+              </Box>
+              <Typography fontSize="14px" color="white" lineHeight={1.8}>
+                এই প্রতিষ্ঠান মানবতার শিক্ষক, মানুষের মুক্তি ও শান্তির দূত,
+                মানবসেবার আদর্শ, মহানবী মুহাম্মদ সা.-এর পদাঙ্ক অনুসরণ করে
+                আর্তমানবতার সেবায় একটি আদর্শ কল্যাণসমাজ বিনির্মাণে যথাশক্তি
+                প্রচেষ্টা চালিয়ে যাচ্ছে।
+              </Typography>
+              <Stack direction="row" spacing={1} mt={3}>
+                <IconButton
+                  sx={{
+                    bgcolor: "rgba(255,255,255,0.1)",
+                    color: "white",
+                    "&:hover": { bgcolor: "rgba(255,255,255,0.2)" },
+                  }}
+                >
+                  <FacebookRoundedIcon fontSize="small" />
+                </IconButton>
+                <IconButton
+                  sx={{
+                    bgcolor: "rgba(255,255,255,0.1)",
+                    color: "white",
+                    "&:hover": { bgcolor: "rgba(255,255,255,0.2)" },
+                  }}
+                >
+                  <YouTubeIcon fontSize="small" />
+                </IconButton>
+                <IconButton
+                  sx={{
+                    bgcolor: "rgba(255,255,255,0.1)",
+                    color: "white",
+                    "&:hover": { bgcolor: "rgba(255,255,255,0.2)" },
+                  }}
+                >
+                  <LinkedInIcon fontSize="small" />
+                </IconButton>
+              </Stack>
+            </Grid2>
 
-    //   <Container
-    //     maxWidth="lg"
-    //     sx={{
-    //       position: "relative",
-    //       zIndex: 2,
-    //       mt: { xs: "120px", md: "100px" },
-    //     }}
-    //   >
-    //     <Grid container spacing={2} justifyContent="space-between">
-    //       {/* Logo and About Column */}
-    //       <Grid item xs={6} md={4}>
-    //         <Stack spacing={2} alignItems={{ md: "flex-start" }}>
-    //           <Box>
-    //             <Image src={logo} alt="al-arafat logo" width={80} height={80} />
-    //           </Box>
-    //           <Typography
-    //             variant="body2"
-    //             sx={{
-    //               textAlign: { md: "left" },
-    //               maxWidth: "300px",
-    //             }}
-    //           >
-    //             এই প্রতিষ্ঠান মানবতার শিক্ষক, মানুষের মুক্তি ও শান্তির দূত,
-    //             মানবসেবার আদর্শ, মহানবী মুহাম্মদ সা.-এর পদাঙ্ক অনুসরণ করে
-    //             আর্তমানবতার সেবায় একটি আদর্শ কল্যাণসমাজ বিনির্মাণে যথাশক্তি
-    //             প্রচেষ্টা চালিয়ে যাচ্ছে।
-    //           </Typography>
+            {/* Menu Section */}
+            <Grid2 size={{ xs: 6, md: 2 }} offset={{ md: 1 }}>
+              <Typography variant="h6" fontSize="18px" fontWeight="bold" mb={2}>
+                মেনু
+              </Typography>
+              <Link href="/about" style={linkStyle}>
+                আমাদের সম্পর্কে
+              </Link>
+              <Link href="/projects" style={linkStyle}>
+                কার্যক্রমসমূহ
+              </Link>
+              <Link href="/blog" style={linkStyle}>
+                ব্লগ
+              </Link>
+              <Link href="/gallery" style={linkStyle}>
+                গ্যালারি
+              </Link>
+            </Grid2>
 
-    //           {/* Social Icons */}
-    //           <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
-    //             <IconButton
-    //               component="a"
-    //               href="#"
-    //               target="_blank"
-    //               color="inherit"
-    //             >
-    //               <FacebookRoundedIcon />
-    //             </IconButton>
-    //             <IconButton
-    //               component="a"
-    //               href="#"
-    //               target="_blank"
-    //               color="inherit"
-    //             >
-    //               <YouTubeIcon />
-    //             </IconButton>
-    //             <IconButton
-    //               component="a"
-    //               href="#"
-    //               target="_blank"
-    //               color="inherit"
-    //             >
-    //               <LinkedInIcon />
-    //             </IconButton>
-    //           </Stack>
-    //         </Stack>
-    //       </Grid>
+            {/* Join Us Section */}
+            <Grid2 size={{ xs: 6, md: 2 }}>
+              <Typography variant="h6" fontSize="18px" fontWeight="bold" mb={2}>
+                যুক্ত হোন
+              </Typography>
+              <Link href="/donor" style={linkStyle}>
+                নিয়মিত দাতা সদস্য
+              </Link>
+              <Link href="/life-member" style={linkStyle}>
+                আজীবন ও দাতা সদস্য
+              </Link>
+              <Link href="/volunteer" style={linkStyle}>
+                স্বেচ্ছাসেবক
+              </Link>
+              <Link href="/career" style={linkStyle}>
+                ক্যারিয়ার
+              </Link>
+            </Grid2>
 
-    //       {/* Menu Column */}
-    //       <Grid item xs={6} md={2}>
-    //         <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
-    //           মেনু
-    //         </Typography>
-    //         <Stack spacing={1.5}>
-    //           <Link href="#" color="inherit" underline="hover">
-    //             আমাদের সম্পর্কে
-    //           </Link>
-    //           <Link href="#" color="inherit" underline="hover">
-    //             কার্যক্রমসমূহ
-    //           </Link>
-    //           <Link href="#" color="inherit" underline="hover">
-    //             ব্লগ
-    //           </Link>
-    //           <Link href="#" color="inherit" underline="hover">
-    //             গ্যালারি
-    //           </Link>
-    //         </Stack>
-    //       </Grid>
-
-    //       {/* Join Us Column */}
-    //       <Grid item xs={6} md={2}>
-    //         <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
-    //           যুক্ত হোন
-    //         </Typography>
-    //         <Stack spacing={1.5}>
-    //           <Link href="#" color="inherit" underline="hover">
-    //             নিয়মিত দাতা সদস্য
-    //           </Link>
-    //           <Link href="#" color="inherit" underline="hover">
-    //             আজীবন ও দাতা সদস্য
-    //           </Link>
-    //           <Link href="#" color="inherit" underline="hover">
-    //             স্বেচ্ছাসেবক
-    //           </Link>
-    //           <Link href="#" color="inherit" underline="hover">
-    //             ক্যারিয়ার
-    //           </Link>
-    //         </Stack>
-    //       </Grid>
-
-    //       {/* Others Column */}
-    //       <Grid item xs={6} md={2}>
-    //         <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
-    //           অন্যান্য
-    //         </Typography>
-    //         <Stack spacing={1.5}>
-    //           <Link href="#" color="inherit" underline="hover">
-    //             যোগাযোগ
-    //           </Link>
-    //           <Link href="#" color="inherit" underline="hover">
-    //             পরিষেবার শর্তাবলী
-    //           </Link>
-    //           <Link href="#" color="inherit" underline="hover">
-    //             গোপনীয়তা নীতি
-    //           </Link>
-    //         </Stack>
-    //       </Grid>
-    //     </Grid>
-    //   </Container>
-
-    //   <Box
-    //     sx={{
-    //       position: "relative",
-    //       zIndex: 2,
-    //       mt: { xs: 6, md: 8 },
-    //       borderTop: "1px solid rgba(255, 255, 255, 0.1)",
-    //       pt: 3,
-    //       textAlign: "center",
-    //     }}
-    //   >
-    //     <Container maxWidth="lg">
-    //       <Typography variant="caption" color="rgba(255, 255, 255, 0.7)">
-    //         স্বত্ব &copy; 2026 আল-আরাফাত ফাউন্ডেশন - সর্ব স্বত্ব সংরক্ষিত।
-    //       </Typography>
-    //     </Container>
-    //   </Box>
-    // </Box>
+            {/* Others Section */}
+            <Grid2 size={{ xs: 12, md: 3 }}>
+              <Typography variant="h6" fontSize="18px" fontWeight="bold" mb={2}>
+                অন্যান্য
+              </Typography>
+              <Link href="/contact" style={linkStyle}>
+                যোগাযোগ
+              </Link>
+              <Link href="/terms" style={linkStyle}>
+                পরিষেবার শর্তাবলী
+              </Link>
+              <Link href="/privacy" style={linkStyle}>
+                গোপনীয়তা নীতি
+              </Link>
+            </Grid2>
+          </Grid2>
+        </Container>
+        {/* Copyright Bottom Bar */}
+        <Box
+          sx={{
+            borderTop: "1px solid rgba(255,255,255,0.1)",
+            py: 3,
+            textAlign: "center",
+          }}
+        >
+          <Container maxWidth="lg">
+            <Typography fontSize="14px" color="rgba(255,255,255,0.7)">
+              স্বত্ব &copy; 2026 আল-আরাফাত ফাউন্ডেশন - সর্ব স্বত্ব সংরক্ষিত।
+            </Typography>
+          </Container>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
