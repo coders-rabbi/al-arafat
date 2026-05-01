@@ -57,9 +57,9 @@ const Footer = () => {
           <Grid2
             container
             spacing={4}
-            alignItems="center"
             justifyItems="center"
             justifyContent="center"
+            mt="50px"
           >
             {/* Logo and Description */}
             <Grid2 size={{ xs: 12, md: 3 }}>
