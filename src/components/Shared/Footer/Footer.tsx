@@ -119,10 +119,10 @@ const Footer = () => {
               <Link href="/about" style={linkStyle}>
                 আমাদের সম্পর্কে
               </Link>
-              <Link href="/projects" style={linkStyle}>
+              <Link href="/activities" style={linkStyle}>
                 কার্যক্রমসমূহ
               </Link>
-              <Link href="/blog" style={linkStyle}>
+              <Link href="/blogs" style={linkStyle}>
                 ব্লগ
               </Link>
               <Link href="/gallery" style={linkStyle}>
