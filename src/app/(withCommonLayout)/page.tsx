@@ -3,6 +3,7 @@ import DonationForm from "@/components/ui/HomePage/donationForm/donationForm";
 import { EventCarousel } from "@/components/ui/HomePage/eventCarousel/eventCarousel";
 import HeroSection from "@/components/ui/HomePage/HeroSection/HeroSection";
 import NewsLetter from "@/components/ui/HomePage/newsLetter/newsLetter";
+import PojectVideo from "@/components/ui/HomePage/projectVideo/projectVideo";
 import UmmahVision from "@/components/ui/HomePage/ummahVision/ummahVision";
 
 const HomePage = () => {
@@ -12,6 +13,7 @@ const HomePage = () => {
       <DonationForm />
       <UmmahVision />
       <EventCarousel/>
+      <PojectVideo/>
       <BlogCard />
       <NewsLetter/>
       {/* <CarouselSize /> */}

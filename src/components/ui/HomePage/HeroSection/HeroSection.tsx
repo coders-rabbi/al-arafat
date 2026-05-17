@@ -1,78 +1,92 @@
 import { Box, Button, Link, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Hero from "@/assets/images/hero-bg.jpeg";
+import zIndex from "@mui/material/styles/zIndex";
 
 const HeroSection = () => {
   return (
-    <Box
-      sx={{
-        position: "relative",
-        width: "100%",
-        height: "800px",
-        overflow: "hidden",
-        zIndex: 0, // Navbar এর নিচে থাকবে
-      }}
-    >
-      <Image
-        src={Hero}
-        alt="Hero"
-        fill // Next.js এর নতুন ভার্সনে layout="fill" এর বদলে fill ব্যবহার করা হয়
-        style={{ objectFit: "cover" }}
-      />
+    // <Box sx={{ bgcolor: "#0F2920", position: "relative", height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    //   <Box>
+    //     {/* <Box
+    //       sx={{
+    //         position: "absolute",
+    //         top: 0,
+    //         left: 0,
+    //         width: "100%",
+    //         height: "100%",
+    //         zIndex: -1
+    //       }}
+    //     >
+    //       <Image
+    //         src={Hero}
+    //         alt="Hero Background"
+    //         fill
+    //         style={{ objectFit: "cover" }}
+    //       />
+    //     </Box> */}
+    //   </Box>
+    // </Box>
 
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          background:
-            "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)", // ০.৫ হলো অন্ধকার বা অপাসিটির পরিমাণ
-          zIndex: 1, // ইমেজের উপরে থাকবে
-        }}
-      />
-      <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "40%",
-          transform: "translate(-50%, -50%)",
-          zIndex: 2,
-          justifyContent: "center",
-          alignItems: "flex-start",
-          paddingLeft: { xs: "20px", md: "80px" },
-        }}
-      >
-        <Typography
-          sx={{ fontSize: { xs: "30px", md: "60px" } }}
-          component="h1"
-          fontWeight={700}
-          color="white"
+    <Box>
+      <Box position="relative">
+        <Box sx={{ height: "100vh", overflow: "hidden" }}>
+          <Image
+            src={Hero}
+            alt="blogbanner"
+            priority
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        </Box>
+        <Box
+          bgcolor="rgba(0, 0, 0, 0.7)"
+          width="100%"
+          height="100%"
+          position="absolute"
+          top={0}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
         >
-          আল-আরাফাত ফাউন্ডেশন
-        </Typography>
-        <Typography variant="h6" component="p" mt={2} color="white">
-          আল-আরাফাত ফাউন্ডেশন একটি অরাজনৈতিক, অলাভজনক, মানবকল্যাণে নিবেদিত
-          সেবামূলক সংগঠন। <br />
-          ২০২২ইং সালে হাফেজ মোহাম্মাদ নূর ও সিরাজুল হক আবরার
-          এটি প্রতিষ্ঠা করেন।
-        </Typography>
-        <Box mt={3}>
-          <Button>আরও জানুন</Button>
-          <Button
-            variant="outlined"
-            component={Link}
-            href="/events"
-            sx={{
-              marginLeft: "20px",
-              color: "white",
-              borderColor: "white",
-              fontWeight: "bold",
-            }}
-          >
-            কার্যক্রমসমূহ
-          </Button>
+          <Box sx={{ textAlign: { xs: "center", md: "start" } }} px={2}>
+            <Typography
+              variant="h3"
+              color="white"
+              fontWeight="700"
+              mb={4}
+              sx={{
+                fontSize: { xs: "1.5rem", md: "2.5rem" },
+                ml: { md: "8%" },
+              }}
+            >
+              আল-আরাফাত ফাউন্ডেশন
+            </Typography>
+            <Typography
+              variant="h6"
+              color="white"
+              lineHeight={1.8}
+              sx={{ mt: 1, width: { md: "60%" }, ml: { md: "8%" } }}
+            >
+              আল-আরাফাত ফাউন্ডেশন একটি অরাজনৈতিক, অলাভজনক, মানবকল্যাণে নিবেদিত
+              সেবামূলক সংগঠন। ২০২২ইং সালে হাফেজ মোহাম্মাদ নূর ও সিরাজুল হক আবরার
+              এটি প্রতিষ্ঠা করেন।
+            </Typography>
+            <Box mt={3} ml="8%">
+              <Button>আরও জানুন</Button>
+              <Button
+                variant="outlined"
+                component={Link}
+                href="/events"
+                sx={{
+                  marginLeft: "20px",
+                  color: "white",
+                  borderColor: "white",
+                  fontWeight: "bold",
+                }}
+              >
+                কার্যক্রমসমূহ
+              </Button>
+            </Box>
+          </Box>
         </Box>
       </Box>
     </Box>
