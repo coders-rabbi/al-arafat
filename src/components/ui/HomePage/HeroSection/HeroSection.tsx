@@ -38,7 +38,7 @@ const HeroSection = () => {
           />
         </Box>
         <Box
-          bgcolor="rgba(0, 0, 0, 0.7)"
+          bgcolor="rgba(0, 0, 0, 0.5)"
           width="100%"
           height="100%"
           position="absolute"
