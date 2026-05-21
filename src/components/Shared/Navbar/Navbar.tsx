@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import Link from "next/link"; // Next.js Link ব্যবহার করা হয়েছে
 import MenuIcon from "@mui/icons-material/Menu";
-import logo from "@/assets/svg/logo.svg"
+import logo from "@/assets/svg/logo.svg";
 import Image from "next/image";
 
 const Navbar = () => {
@@ -31,14 +31,14 @@ const Navbar = () => {
   };
 
   const menuItems = [
-    { label: "হোম", path: "/" },
-    { label: "আমাদের সম্পর্কে", path: "/about" },
-    { label: "কার্যক্রম", path: "/activities" },
-    { label: "গ্যালারি", path: "/gallery" },
-    { label: "আমাদের সাথে যুক্ত হোন", path: "/join" },
-    { label: "ব্লগ", path: "/blogs" },
-    { label: "নোটিশ", path: "/notice" },
-    { label: "যোগাযোগ", path: "/contact" },
+    { label: "Home", path: "/" },
+    { label: "About Us", path: "/about" },
+    { label: "Activities", path: "/activities" },
+    { label: "Gallery", path: "/gallery" },
+    { label: "Join Us", path: "/join" },
+    { label: "Blogs", path: "/blogs" },
+    { label: "Notice", path: "/notice" },
+    { label: "Contact", path: "/contact" },
   ];
 
   const drawer = (
@@ -117,7 +117,7 @@ const Navbar = () => {
         </Typography> */}
 
         <Box>
-          <Image src={logo} alt="logo" width={50}/>
+          <Image src={logo} alt="logo" width={50} />
         </Box>
         <Stack
           direction="row"

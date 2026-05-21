@@ -14,7 +14,7 @@ import Image from "next/image";
 
 const NewsLetter = () => {
   return (
-    <Container  maxWidth="lg" sx={{ mt: 10, zIndex: "1300"}}>
+    <Container maxWidth="lg" sx={{ mt: 10, zIndex: "1300" }}>
       <Box
         sx={{
           backgroundColor: "#eeb84c",
@@ -58,15 +58,15 @@ const NewsLetter = () => {
               mb: 4,
             }}
           >
-            নিয়মিত নিউজলেটার পেতে সাবস্ক্রাইব করুন
+            Subscribe to Our Regular Newsletter
           </Typography>
 
           <Grid container spacing={2} alignItems="flex-end" component="div">
             <Grid item xs={12} sm={6} md={9} component="div">
               <TextField
-              required
+                required
                 fullWidth
-                placeholder="মোবাইল নম্বর / ইমেইল লিখুন"
+                placeholder="Enter Your Phone or Email"
                 variant="outlined"
                 sx={{ backgroundColor: "#fff", borderRadius: "4px" }}
               />
@@ -86,7 +86,7 @@ const NewsLetter = () => {
                   textTransform: "none",
                 }}
               >
-                সাবস্ক্রাইব
+                Subscribe
               </Button>
             </Grid>
           </Grid>

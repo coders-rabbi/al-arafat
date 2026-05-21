@@ -23,17 +23,17 @@ const contact = () => {
   const contactData = [
     {
       icon: <PhoneIcon sx={{ color: "white" }} />,
-      label: "ফোন",
-      value: "+৮৮০১৩৩০৬৮০৪০৫",
+      label: "Phone",
+      value: "+8801330680405",
     },
     {
       icon: <LocationOnIcon sx={{ color: "white" }} />,
-      label: "ঠিকানা",
-      value: "উখিয়া কক্সবাজার, চিটাগং বাংলাদেশ",
+      label: "Address",
+      value: "Ukhia Coxs Bazar, Chattogram Bangladesh",
     },
     {
       icon: <EmailIcon sx={{ color: "white" }} />,
-      label: "ইমেইল",
+      label: "Email",
       value: "contact@alarafatfoundation.org",
     },
   ];
@@ -66,7 +66,7 @@ const contact = () => {
               fontWeight="bold"
               sx={{ fontSize: { xs: "2rem", md: "3rem" } }}
             >
-              যোগাযোগ
+              Contact
             </Typography>
           </Box>
         </Box>
@@ -94,62 +94,62 @@ const contact = () => {
                   variant="h6"
                   sx={{ fontWeight: "600", mb: 3, textAlign: "left" }}
                 >
-                  যোগাযোগ ফর্ম
+                  Contact Form
                 </Typography>
 
                 <form>
                   {/* আপনার নাম */}
                   <Typography sx={{ mb: 1, fontWeight: "medium" }}>
-                    আপনার নাম <span style={{ color: "red" }}>*</span>
+                    Your Name <span style={{ color: "red" }}>*</span>
                   </Typography>
                   <TextField
                     fullWidth
-                    placeholder="লিখুন"
+                    placeholder="Enter Your Name"
                     variant="outlined"
                     sx={{ mb: 3, bgcolor: "#f9f9f9" }}
                   />
 
                   {/* মোবাইল / ইমেইল */}
                   <Typography sx={{ mb: 1, fontWeight: "medium" }}>
-                    মোবাইল / ইমেইল <span style={{ color: "red" }}>*</span>
+                    Phone / Email <span style={{ color: "red" }}>*</span>
                   </Typography>
                   <TextField
                     fullWidth
-                    placeholder="লিখুন"
+                    placeholder="Enter Your Phone or Email"
                     variant="outlined"
                     sx={{ mb: 3, bgcolor: "#f9f9f9" }}
                   />
 
-                  {/* বিষয় */}
+                  {/* Subject */}
                   <Typography sx={{ mb: 1, fontWeight: "medium" }}>
-                    বিষয় <span style={{ color: "red" }}>*</span>
+                    Subject <span style={{ color: "red" }}>*</span>
                   </Typography>
                   <TextField
                     fullWidth
-                    placeholder="লিখুন"
+                    placeholder="Enter Your Subject"
                     variant="outlined"
                     sx={{ mb: 3, bgcolor: "#f9f9f9" }}
                   />
 
-                  {/* বার্তা */}
+                  {/* Message */}
                   <Typography sx={{ mb: 1, fontWeight: "medium" }}>
-                    বার্তা <span style={{ color: "red" }}>*</span>
+                    Message <span style={{ color: "red" }}>*</span>
                   </Typography>
                   <TextField
                     fullWidth
-                    placeholder="লিখুন"
+                    placeholder="Enter Your Message"
                     variant="outlined"
                     multiline
                     rows={6}
                     sx={{ mb: 3, bgcolor: "white" }}
                   />
 
-                  {/* সাবমিট বাটন */}
+                  
                   <Button
                     variant="contained"
                     endIcon={<SendIcon />}
                     sx={{
-                      backgroundColor: "#00894a", // সবুজ রঙ (ইমেজের মত)
+                      backgroundColor: "#00894a", 
                       "&:hover": {
                         backgroundColor: "#006d3b",
                       },
@@ -160,7 +160,7 @@ const contact = () => {
                       borderRadius: "8px",
                     }}
                   >
-                    প্রেরণ করুন
+                    Submit
                   </Button>
                 </form>
               </Box>
@@ -175,7 +175,7 @@ const contact = () => {
                 }}
               >
                 <Typography variant="h6" fontWeight={600} gutterBottom mb={2}>
-                  আমাদের অবস্থান
+                  Our Location
                 </Typography>
 
                 <Paper
@@ -186,8 +186,17 @@ const contact = () => {
                     borderRadius: 2,
                   }}
                 >
+                  {/* <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1014.0285416332748!2d92.16410607272373!3d21.213080636977427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sbd!4v1779390654463!5m2!1sen!2sbd"
+                    width="100%"
+                    height="350"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe> */}
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.9024424301!2d90.3910801!3d23.7508643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8973d09a531%3A0xd641323386064f51!2sPanthapath%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1714567890123"
+                    src="https://www.google.com/maps/embed?pb=!1m24!1m12!1m3!1d232.4666977446623!2d92.16488355386196!3d21.21331584479095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m9!3e0!4m3!3m2!1d23.8004842!2d90.38027579999999!4m3!3m2!1d21.2133181!2d92.16499209999999!5e0!3m2!1sen!2sbd!4v1779390915403!5m2!1sen!2sbd"
                     width="100%"
                     height="350"
                     style={{ border: 0 }}
