@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import {
   Box,
   Button,
@@ -25,11 +25,15 @@ export interface BlogItem {
   image_url: string;
 }
 
-const BlogPage = () => {
-  const { blogs, loading, error } = useBlog();
+const BlogPage = async () => {
+  const data = await fetch(
+    "https://al-arafatfoundation-server.vercel.app/blogs",
+  );
+  const blogs: BlogItem[] = await data.json();
+  // const { blogs, loading, error } = useBlog();
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error: {error}</p>;
   return (
     <Box>
       <Box position="relative">
@@ -57,7 +61,7 @@ const BlogPage = () => {
             fontWeight="bold"
             sx={{ fontSize: { xs: "2rem", md: "3.5rem" } }}
           >
-            ব্লগ
+            Blog & News
           </Typography>
         </Box>
       </Box>

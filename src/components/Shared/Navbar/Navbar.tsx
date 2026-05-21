@@ -78,7 +78,7 @@ const Navbar = () => {
         sx={{ mt: 2 }}
         onClick={() => setMobileOpen(false)}
       >
-        দান করুন
+        Donate
       </Button>
     </Box>
   );
@@ -149,7 +149,7 @@ const Navbar = () => {
             variant="contained"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            দান করুন
+            Donate
           </Button>
 
           <IconButton
