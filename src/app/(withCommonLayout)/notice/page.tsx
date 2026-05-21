@@ -33,10 +33,11 @@ const NoticeBoardPage = () => {
               fontWeight="700"
               sx={{ fontSize: { xs: "1.5rem", md: "2.5rem" } }}
             >
-              নোটিশ বোর্ড
+              Notice Board
             </Typography>
             <Typography variant="h6" color="white" sx={{ mt: 1 }}>
-              আল-আরাফাত ফাউন্ডেশনের সর্বশেষ ঘোষণা ও নোটিশসমূহ দেখুন
+              View the latest announcements and notices from Al-Arafat
+              Foundation
             </Typography>
           </Box>
         </Box>
@@ -51,8 +52,14 @@ const NoticeBoardPage = () => {
               color: "primary.main", // আপনার থিম অনুযায়ী কালার
             }}
           />
-          <Typography variant="h6" color="text.secondary" sx={{ mt: 2 }}>
-            কোনো নোটিশ পাওয়া যায়নি
+          <Typography
+            variant="h6"
+            color="text.secondary"
+            sx={{ mt: 2 }}
+            textAlign="center"
+          >
+            There is no notice available at the moment.
+            <br /> Please check back later for updates.
           </Typography>
         </Stack>
         <NewsLetter />
