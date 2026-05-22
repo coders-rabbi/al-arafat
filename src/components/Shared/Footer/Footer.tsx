@@ -75,13 +75,14 @@ const Footer = () => {
                 />
               </Box>
               <Typography fontSize="14px" color="white" lineHeight={1.8}>
-                Al-Arafat Foundation is a non-profit, non-political, and
+                Al Arafat Foundation is a non-profit, non-political, and
                 humanitarian organization dedicated to serving underprivileged
                 communities through education, healthcare, emergency relief, and
-                various social welfare initiatives. Rooted in the principles of
-                humanity, accountability, and the noble teachings of Prophet
-                Muhammad (PBUH), we are firmly committed to building a just,
-                compassionate, and welfare-oriented society.
+                various humanitarian initiatives. Guided by the values of
+                humanity, responsibility, and the noble teachings of Prophet
+                Muhammad (PBUH), we are committed to building a just,
+                compassionate, and welfare-oriented society for the betterment
+                of humanity.
               </Typography>
               <Stack direction="row" spacing={1} mt={3}>
                 <IconButton
