@@ -38,7 +38,7 @@ const HeroSection = () => {
           />
         </Box>
         <Box
-          bgcolor="rgba(0, 0, 0, 0.5)"
+          bgcolor="rgba(0, 0, 0, 0.7)"
           width="100%"
           height="100%"
           position="absolute"
@@ -83,8 +83,16 @@ const HeroSection = () => {
             >
               Al-Arafat Foundation is a non-political, non-profit charitable
               organization dedicated to human welfare. Established in 2022, the
-              foundation was co-founded by Hafez Mohammad Noor and Sirajul Haque
-              Abrar.
+              foundation was co-founded by Hafez Mohammad Noor and Serajul Hoque
+              Abrar. <br />
+              <Box
+                component="span"
+                fontStyle="italic"
+                color="#EEB84C"
+                fontWeight={600}
+              >
+                "Let's Transform the World with the Power of Humanity"
+              </Box>
             </Typography>
             <Box mt={3} ml="8%">
               <Button>Read More</Button>
