@@ -68,17 +68,20 @@ const Footer = () => {
                   src={logo}
                   alt="logo"
                   style={{
-                    width: "100px",
+                    width: "80px",
                     height: "auto",
                     borderRadius: "50%",
                   }}
                 />
               </Box>
               <Typography fontSize="14px" color="white" lineHeight={1.8}>
-                Following the footsteps of Prophet Muhammad (PBUH), the teacher
-                of humanity, the messenger of liberation and peace, and the
-                ideal of human service, this organization is dedicated to
-                building an ideal welfare society in service of humanity.
+                Al-Arafat Foundation is a non-profit, non-political, and
+                humanitarian organization dedicated to serving underprivileged
+                communities through education, healthcare, emergency relief, and
+                various social welfare initiatives. Rooted in the principles of
+                humanity, accountability, and the noble teachings of Prophet
+                Muhammad (PBUH), we are firmly committed to building a just,
+                compassionate, and welfare-oriented society.
               </Typography>
               <Stack direction="row" spacing={1} mt={3}>
                 <IconButton
