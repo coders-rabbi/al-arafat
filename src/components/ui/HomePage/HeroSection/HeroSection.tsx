@@ -71,7 +71,7 @@ const HeroSection = () => {
                 ml: { md: "8%" },
               }}
             >
-              Rohingya Community Welfare Association
+              Rohingya Community Humanitarian Society
             </Typography>
 
             <Typography
