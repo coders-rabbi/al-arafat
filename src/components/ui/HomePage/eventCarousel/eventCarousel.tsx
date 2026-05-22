@@ -44,7 +44,7 @@ export function EventCarousel() {
           color="secondary.main"
           mb={8}
         >
-          চলমান কার্যক্রমসমূহ
+          Regular Activities
         </Typography>
       </Box>
       <Carousel
@@ -99,7 +99,7 @@ export function EventCarousel() {
                         mb="10px"
                         variant="subtitle2"
                       >
-                        <RocketLaunchIcon fontSize="small" /> নিয়মিত কার্যক্রম
+                        <RocketLaunchIcon fontSize="small" /> Regular Activities
                       </Typography>
 
                       <Typography
@@ -140,7 +140,7 @@ export function EventCarousel() {
                           borderRadius: "10px",
                         }}
                       >
-                        বিস্তারিত দেখুন
+                        View More
                       </Button>
                     </CardContent>
                   </CardActionArea>

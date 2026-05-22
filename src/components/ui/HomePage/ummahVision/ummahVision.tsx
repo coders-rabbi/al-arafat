@@ -19,7 +19,7 @@ const UmmahVision = () => {
         </Typography>
       </Box>
 
-      {/* Grid container এ size প্রপ ব্যবহার করা হয়েছে রেসপনসিভ করার জন্য */}
+      {/* Grid container এ size প্রপ ব্যবহার করা হয়েছে রেসপনসিভ করার জন্য */}
       <Grid2 container spacing={4} mt={{ xs: 5, md: 10 }}>
         {/* শিক্ষা কলাম */}
         <Grid2
@@ -41,12 +41,12 @@ const UmmahVision = () => {
           </Box>
           <Box>
             <Typography variant="h4" fontWeight="bold" color="secondary.main">
-              দাওয়া
+              Dawah
             </Typography>
             <Typography variant="body1" mt={2} color="text.secondary">
-              বই-পুস্তক রচনা ও প্রকাশনা, মসজিদ ও অডিটোরিয়ামভিত্তিক দ্বীনি
-              হালাকাহ, দাওয়াহ বিষয়ক প্রশিক্ষণ ও কর্মশালাসহ
-              অনলাইন-অফলাইনভিত্তিক বহুমাত্রিক কার্যক্রম।
+              Writing and publishing books, mosque and auditorium-based Islamic
+              Halaqah, Dawah training and workshops, along with
+              multi-dimensional online and offline initiatives.
             </Typography>
           </Box>
         </Grid2>
@@ -71,17 +71,18 @@ const UmmahVision = () => {
           </Box>
           <Box>
             <Typography variant="h4" fontWeight="bold" color="secondary.main">
-              শিক্ষা
+              Education
             </Typography>
             <Typography variant="body1" mt={2} color="text.secondary">
-              দ্বীনি ও সাধারণ শিক্ষার সমন্বিত সিলেবাসের মাদরাসা প্রতিষ্ঠা;
-              স্কুল, কলেজ ও বিশ্ববিদ্যালয়সহ বিভিন্ন সাধারণ ও কারিগরি বিদ্যালয়
-              প্রতিষ্ঠা; এছাড়া অপ্রাতিষ্ঠানিক শিক্ষার উদ্যোগ গ্রহণ।
+              Establishing Madrasas with an integrated syllabus of Islamic and
+              general education; founding general and technical schools,
+              colleges, and universities; along with initiating informal
+              education programs.
             </Typography>
           </Box>
         </Grid2>
 
-        {/* দাওয়াহ কলাম */}
+        {/* দাওয়াহ কলাম */}
         <Grid2
           size={{ xs: 12, md: 4 }}
           sx={{
@@ -98,12 +99,13 @@ const UmmahVision = () => {
           </Box>
           <Box>
             <Typography variant="h4" fontWeight="bold" color="secondary.main">
-              সেবা
+              Service
             </Typography>
             <Typography variant="body1" mt={2} color="text.secondary">
-              দরিদ্রদের স্বাবলম্বীকরণ, বন্যার্তদের ত্রাণ ও পুনর্বাসন, নলকূপ ও
-              পানি শোধনাগার স্থাপন, বৃক্ষরোপণ, শীতবস্ত্র বিতরণ, ইফতার বিতরণ,
-              সবার জন্য কুরবানীসহ বিভিন্ন সেবামূলক কার্যক্রম।
+              Empowering the underprivileged, flood relief and rehabilitation,
+              installing tube wells and water treatment plants, tree plantation,
+              winter clothing distribution, Iftar distribution, Qurbani for all,
+              and various welfare activities.
             </Typography>
           </Box>
         </Grid2>
@@ -116,7 +118,7 @@ const UmmahVision = () => {
           size="large"
           sx={{ px: 4, py: 1.5, borderRadius: "8px" }}
         >
-          আরোও জানুন
+          Learn More
         </Button>
       </Box>
     </Container>
