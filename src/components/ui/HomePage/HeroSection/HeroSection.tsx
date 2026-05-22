@@ -91,7 +91,7 @@ const HeroSection = () => {
                 color="#EEB84C"
                 fontWeight={600}
               >
-                Let's Transform the World with the Power of Humanity
+                Let&apos;s Transform the World with the Power of Humanity
               </Box>
             </Typography>
             <Box mt={3} ml="8%">
