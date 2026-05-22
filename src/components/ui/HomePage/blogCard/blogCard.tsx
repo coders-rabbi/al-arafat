@@ -2,7 +2,6 @@ import { Card, CardContent, Container, Grid2, Typography } from "@mui/material";
 import Image from "next/image";
 import post from "@/assets/images/blog1.webp";
 
-
 const BlogCard = async () => {
   // const res = await fetch("/blogFake.json");
   // const data = await res.json();
@@ -11,13 +10,13 @@ const BlogCard = async () => {
     <Container>
       <Card
         sx={{
-          display: "flex", // ফ্লেক্সবক্স ব্যবহার করলে গ্রিড আরও ভালো কাজ করে
+          display: "flex",
           borderRadius: 4,
           overflow: "hidden",
           boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
           border: "1px solid #f0f0f0",
           m: 2,
-          // maxHeight তুলে দেওয়া ভালো যদি কন্টেন্ট বেশি হয়, অথবা নির্দিষ্ট হাইট দিন
+
           height: { md: 350 },
         }}
       >
@@ -27,22 +26,16 @@ const BlogCard = async () => {
             size={{ xs: 12, md: 5 }}
             sx={{ position: "relative", height: { xs: 250, md: "100%" } }}
           >
-            <Image
-              src={post}
-              alt="post"
-              fill // এটি ইমেজকে প্যারেন্ট ডিভ এর পুরোটা জুড়ে রাখবে
-              style={{ objectFit: "cover" }}
-            />
+            <Image src={post} alt="post" fill style={{ objectFit: "cover" }} />
           </Grid2>
 
-          {/* ডান দিকের কন্টেন্ট সেকশন */}
           <Grid2
             size={{ xs: 12, md: 5 }}
             sx={{
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              bgcolor: "white", // ব্যাকগ্রাউন্ড নিশ্চিত করা
+              bgcolor: "white",
             }}
           >
             <CardContent sx={{ p: { xs: 3, md: 5 } }}>
@@ -56,7 +49,7 @@ const BlogCard = async () => {
                   lineHeight: 1.3,
                 }}
               >
-                উন্মুক্ত মাঠে ঈদের সালাত ও আনন্দ আয়োজন অনুষ্ঠিত
+                Eid Prayers and Festive Celebrations Held in Open Field
               </Typography>
 
               <Typography
@@ -68,9 +61,10 @@ const BlogCard = async () => {
                   fontFamily: '"Hind Siliguri", sans-serif',
                 }}
               >
-                রাজধানীর বাড্ডার সাঁতারকুলের স্বদেশ প্রোপার্টিজে আস সুন্নাহর
-                মসজিদ কমপ্লেক্স সংলগ্ন মাদরাসাতুস সুন্নাহর খোলা মাঠে চতুর্থবারের
-                মতো ঈদুল ফিতরের জামাত ও...
+                For the fourth time, the Eid-ul-Fitr congregation and
+                festivities were held in the open field of Madrasatus Sunnah,
+                adjacent to the As-Sunnah Mosque Complex at Swadesh Properties
+                in Satarkul, Badda, Capital...
               </Typography>
 
               <Typography
@@ -81,7 +75,7 @@ const BlogCard = async () => {
                   letterSpacing: 0.5,
                 }}
               >
-                ২২ মার্চ, ২০২৬
+                March 22, 2026
               </Typography>
             </CardContent>
           </Grid2>

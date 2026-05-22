@@ -45,7 +45,7 @@ const Footer = () => {
             src={footerImg}
             alt="Footer Background"
             fill
-            style={{ objectFit: "cover" }} // ইমেজটি ব্যাকগ্রাউন্ড হিসেবে সেট করা হয়েছে
+            style={{ objectFit: "cover" }} // ইমেজটি ব্যাকগ্রাউন্ড হিসেবে সেট করা হয়েছে
           />
         </Box>
 
@@ -75,13 +75,14 @@ const Footer = () => {
                 />
               </Box>
               <Typography fontSize="14px" color="white" lineHeight={1.8}>
-                এই প্রতিষ্ঠান মানবতার শিক্ষক, মানুষের মুক্তি ও শান্তির দূত,
-                মানবসেবার আদর্শ, মহানবী মুহাম্মদ সা.-এর পদাঙ্ক অনুসরণ করে
-                আর্তমানবতার সেবায় একটি আদর্শ কল্যাণসমাজ বিনির্মাণে যথাশক্তি
-                প্রচেষ্টা চালিয়ে যাচ্ছে।
+                Following the footsteps of Prophet Muhammad (PBUH), the teacher
+                of humanity, the messenger of liberation and peace, and the
+                ideal of human service, this organization is dedicated to
+                building an ideal welfare society in service of humanity.
               </Typography>
               <Stack direction="row" spacing={1} mt={3}>
                 <IconButton
+                  href="https://www.facebook.com/profile.php?id=61564801465531"
                   sx={{
                     bgcolor: "rgba(255,255,255,0.1)",
                     color: "white",
@@ -91,6 +92,7 @@ const Footer = () => {
                   <FacebookRoundedIcon fontSize="small" />
                 </IconButton>
                 <IconButton
+                  href="https://youtube.com/@alarafatfoundation?si=ynIm6p6JP-W86Ovy"
                   sx={{
                     bgcolor: "rgba(255,255,255,0.1)",
                     color: "white",
@@ -100,6 +102,7 @@ const Footer = () => {
                   <YouTubeIcon fontSize="small" />
                 </IconButton>
                 <IconButton
+                  href="https://www.linkedin.com/in/al-arafat-foundation-687a833b2/"
                   sx={{
                     bgcolor: "rgba(255,255,255,0.1)",
                     color: "white",
@@ -114,54 +117,54 @@ const Footer = () => {
             {/* Menu Section */}
             <Grid2 size={{ xs: 6, md: 2 }} offset={{ md: 1 }}>
               <Typography variant="h6" fontSize="18px" fontWeight="bold" mb={2}>
-                মেনু
+                Menu
               </Typography>
               <Link href="/about" style={linkStyle}>
-                আমাদের সম্পর্কে
+                About Us
               </Link>
               <Link href="/activities" style={linkStyle}>
-                কার্যক্রমসমূহ
+                Our Activities
               </Link>
               <Link href="/blogs" style={linkStyle}>
-                ব্লগ
+                Blogs
               </Link>
               <Link href="/gallery" style={linkStyle}>
-                গ্যালারি
+                Gallery
               </Link>
             </Grid2>
 
             {/* Join Us Section */}
             <Grid2 size={{ xs: 6, md: 2 }}>
               <Typography variant="h6" fontSize="18px" fontWeight="bold" mb={2}>
-                যুক্ত হোন
+                Join Us
               </Typography>
               <Link href="/donor" style={linkStyle}>
-                নিয়মিত দাতা সদস্য
+                Regular Donors
               </Link>
               <Link href="/life-member" style={linkStyle}>
-                আজীবন ও দাতা সদস্য
+                Life & Donor Members
               </Link>
               <Link href="/volunteer" style={linkStyle}>
-                স্বেচ্ছাসেবক
+                Volunteer
               </Link>
               <Link href="/career" style={linkStyle}>
-                ক্যারিয়ার
+                Careers
               </Link>
             </Grid2>
 
             {/* Others Section */}
             <Grid2 size={{ xs: 12, md: 3 }}>
               <Typography variant="h6" fontSize="18px" fontWeight="bold" mb={2}>
-                অন্যান্য
+                Others
               </Typography>
               <Link href="/contact" style={linkStyle}>
-                যোগাযোগ
+                Contact Us
               </Link>
               <Link href="/terms" style={linkStyle}>
-                পরিষেবার শর্তাবলী
+                Terms of Service
               </Link>
               <Link href="/privacy" style={linkStyle}>
-                গোপনীয়তা নীতি
+                Privacy Policy
               </Link>
             </Grid2>
           </Grid2>
@@ -176,7 +179,7 @@ const Footer = () => {
         >
           <Container maxWidth="lg">
             <Typography fontSize="14px" color="rgba(255,255,255,0.7)">
-              স্বত্ব &copy; 2026 আল-আরাফাত ফাউন্ডেশন - সর্ব স্বত্ব সংরক্ষিত।
+              Copyright &copy; 2026 Al-Arafat Foundation - All Rights Reserved.
             </Typography>
           </Container>
         </Box>
