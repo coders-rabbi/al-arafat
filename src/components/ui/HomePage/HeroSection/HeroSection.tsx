@@ -52,26 +52,42 @@ const HeroSection = () => {
               variant="h3"
               color="white"
               fontWeight="700"
-              mb={4}
+              mb={2}
               sx={{
                 fontSize: { xs: "1.5rem", md: "2.5rem" },
                 ml: { md: "8%" },
               }}
             >
-              আল-আরাফাত ফাউন্ডেশন
+              Al Arafat Foundation
             </Typography>
+
+            <Typography
+              variant="h5"
+              color="white"
+              fontWeight="700"
+              mb={3}
+              sx={{
+                fontSize: { xs: "1rem", md: "1.5rem" },
+                ml: { md: "8%" },
+              }}
+            >
+              Rohingya Community Welfare Association
+            </Typography>
+
             <Typography
               variant="h6"
-              color="white"
-              lineHeight={1.8}
+              fontSize=".9rem"
+              color="#F7F8FA"
+              lineHeight={1.5}
               sx={{ mt: 1, width: { md: "60%" }, ml: { md: "8%" } }}
             >
-              আল-আরাফাত ফাউন্ডেশন একটি অরাজনৈতিক, অলাভজনক, মানবকল্যাণে নিবেদিত
-              সেবামূলক সংগঠন। ২০২২ইং সালে হাফেজ মোহাম্মাদ নূর ও সিরাজুল হক আবরার
-              এটি প্রতিষ্ঠা করেন।
+              Al-Arafat Foundation is a non-political, non-profit charitable
+              organization dedicated to human welfare. Established in 2022, the
+              foundation was co-founded by Hafez Mohammad Noor and Sirajul Haque
+              Abrar.
             </Typography>
             <Box mt={3} ml="8%">
-              <Button>আরও জানুন</Button>
+              <Button>Read More</Button>
               <Button
                 variant="outlined"
                 component={Link}
@@ -83,7 +99,7 @@ const HeroSection = () => {
                   fontWeight: "bold",
                 }}
               >
-                কার্যক্রমসমূহ
+                Activities
               </Button>
             </Box>
           </Box>

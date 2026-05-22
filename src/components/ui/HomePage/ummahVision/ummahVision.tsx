@@ -15,7 +15,7 @@ const UmmahVision = () => {
           color="secondary.main"
           sx={{ fontSize: { xs: "1.8rem", md: "3rem" } }} // মোবাইলে ফন্ট সাইজ ছোট হবে
         >
-          উম্মাহর স্বার্থে, সুন্নাহর সাথে
+          For the Rohingya, with Humanity.
         </Typography>
       </Box>
 
