@@ -195,7 +195,7 @@ const contact = () => {
                     referrerPolicy="no-referrer-when-downgrade"
                   ></iframe> */}
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m24!1m12!1m3!1d232.4666977446623!2d92.16488355386196!3d21.21331584479095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m9!3e0!4m3!3m2!1d23.8004842!2d90.38027579999999!4m3!3m2!1d21.2133181!2d92.16499209999999!5e0!3m2!1sen!2sbd!4v1779390915403!5m2!1sen!2sbd"
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d232.46715312909419!2d92.1668300147152!3d21.2130266753216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDEyJzQ3LjEiTiA5MsKwMTAnMDAuOCJF!5e0!3m2!1sen!2sbd!4v1779441263964!5m2!1sen!2sbd"
                     width="100%"
                     height="350"
                     style={{ border: 0 }}
