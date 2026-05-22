@@ -29,12 +29,12 @@ const contact = () => {
     {
       icon: <LocationOnIcon sx={{ color: "white" }} />,
       label: "Address",
-      value: "Ukhia Coxs Bazar, Chattogram Bangladesh",
+      value: "Kutupalong Refugee Camp, Ukhia, Cox's Bazar – 4750, Bangladesh",
     },
     {
       icon: <EmailIcon sx={{ color: "white" }} />,
       label: "Email",
-      value: "contact@alarafatfoundation.org",
+      value: "info@alarafatfounfation.org",
     },
   ];
   return (
@@ -144,12 +144,11 @@ const contact = () => {
                     sx={{ mb: 3, bgcolor: "white" }}
                   />
 
-                  
                   <Button
                     variant="contained"
                     endIcon={<SendIcon />}
                     sx={{
-                      backgroundColor: "#00894a", 
+                      backgroundColor: "#00894a",
                       "&:hover": {
                         backgroundColor: "#006d3b",
                       },

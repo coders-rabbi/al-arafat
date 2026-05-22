@@ -31,19 +31,19 @@ const page = () => {
               fontWeight="bold"
               sx={{ fontSize: { xs: "2rem", md: "3rem" } }}
             >
-              আমাদের সাথে যুক্ত হোন
+              Join With Us
             </Typography>
           </Box>
         </Box>
       </Box>
       <Container sx={{ mt: "80px" }}>
         <Typography variant="h4" fontWeight={700}>
-          আমাদের সঙ্গে যুক্ত হতে পারেন বিভিন্নভাবে
+          Join With Us Via Different Ways
         </Typography>
         <Typography color="secondary.main" mt={2}>
-          আপনি যদি আস-সুন্নাহ ফাউন্ডেশনের কল্যাণকর কাজসমূহের অংশীদার হতে চান,
-          নিচের যেকোনো একটি উপায়ে আমাদের সঙ্গে যুক্ত হতে পারেন। আপনার আগ্রহ
-          অনুযায়ী যেকোনো অপশনে ক্লিক করুন।
+          If you want to be a part of the beneficial activities of As-Sunnah
+          Foundation, you can join us in any of the following ways. Please click
+          on any option according to your interest.
         </Typography>
       </Container>
 

@@ -37,16 +37,16 @@ const UmmahVision = () => {
           }}
         >
           <Box>
-            <Image src={eduIcon} alt="Education" width={100} height={100} />
+            <Image src={alQuranIcon} alt="Dawah" width={100} height={100} />
           </Box>
           <Box>
             <Typography variant="h4" fontWeight="bold" color="secondary.main">
-              শিক্ষা
+              দাওয়া
             </Typography>
             <Typography variant="body1" mt={2} color="text.secondary">
-              দ্বীনি ও সাধারণ শিক্ষার সমন্বিত সিলেবাসের মাদরাসা প্রতিষ্ঠা;
-              স্কুল, কলেজ ও বিশ্ববিদ্যালয়সহ বিভিন্ন সাধারণ ও কারিগরি বিদ্যালয়
-              প্রতিষ্ঠা; এছাড়া অপ্রাতিষ্ঠানিক শিক্ষার উদ্যোগ গ্রহণ।
+              বই-পুস্তক রচনা ও প্রকাশনা, মসজিদ ও অডিটোরিয়ামভিত্তিক দ্বীনি
+              হালাকাহ, দাওয়াহ বিষয়ক প্রশিক্ষণ ও কর্মশালাসহ
+              অনলাইন-অফলাইনভিত্তিক বহুমাত্রিক কার্যক্রম।
             </Typography>
           </Box>
         </Grid2>
@@ -67,16 +67,16 @@ const UmmahVision = () => {
           }}
         >
           <Box>
-            <Image src={handShakeIcon} alt="Service" width={100} height={100} />
+            <Image src={eduIcon} alt="Education" width={100} height={100} />
           </Box>
           <Box>
             <Typography variant="h4" fontWeight="bold" color="secondary.main">
-              সেবা
+              শিক্ষা
             </Typography>
             <Typography variant="body1" mt={2} color="text.secondary">
-              দরিদ্রদের স্বাবলম্বীকরণ, বন্যার্তদের ত্রাণ ও পুনর্বাসন, নলকূপ ও
-              পানি শোধনাগার স্থাপন, বৃক্ষরোপণ, শীতবস্ত্র বিতরণ, ইফতার বিতরণ,
-              সবার জন্য কুরবানীসহ বিভিন্ন সেবামূলক কার্যক্রম।
+              দ্বীনি ও সাধারণ শিক্ষার সমন্বিত সিলেবাসের মাদরাসা প্রতিষ্ঠা;
+              স্কুল, কলেজ ও বিশ্ববিদ্যালয়সহ বিভিন্ন সাধারণ ও কারিগরি বিদ্যালয়
+              প্রতিষ্ঠা; এছাড়া অপ্রাতিষ্ঠানিক শিক্ষার উদ্যোগ গ্রহণ।
             </Typography>
           </Box>
         </Grid2>
@@ -94,16 +94,16 @@ const UmmahVision = () => {
           }}
         >
           <Box>
-            <Image src={alQuranIcon} alt="Dawah" width={100} height={100} />
+            <Image src={handShakeIcon} alt="Service" width={100} height={100} />
           </Box>
           <Box>
             <Typography variant="h4" fontWeight="bold" color="secondary.main">
-              দাওয়া
+              সেবা
             </Typography>
             <Typography variant="body1" mt={2} color="text.secondary">
-              বই-পুস্তক রচনা ও প্রকাশনা, মসজিদ ও অডিটোরিয়ামভিত্তিক দ্বীনি
-              হালাকাহ, দাওয়াহ বিষয়ক প্রশিক্ষণ ও কর্মশালাসহ
-              অনলাইন-অফলাইনভিত্তিক বহুমাত্রিক কার্যক্রম।
+              দরিদ্রদের স্বাবলম্বীকরণ, বন্যার্তদের ত্রাণ ও পুনর্বাসন, নলকূপ ও
+              পানি শোধনাগার স্থাপন, বৃক্ষরোপণ, শীতবস্ত্র বিতরণ, ইফতার বিতরণ,
+              সবার জন্য কুরবানীসহ বিভিন্ন সেবামূলক কার্যক্রম।
             </Typography>
           </Box>
         </Grid2>

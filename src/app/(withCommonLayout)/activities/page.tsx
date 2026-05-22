@@ -109,7 +109,7 @@ const BlogList = async () => {
                     textTransform: "none",
                   }}
                 >
-                  বিস্তারিত দেখুন
+                  View Details
                 </Button>
               </CardContent>
             </CardActionArea>
