@@ -1,6 +1,6 @@
 import { Card, CardContent, Container, Grid2, Typography } from "@mui/material";
 import Image from "next/image";
-import post from "@/assets/images/blog1.webp";
+import post from "@/assets/images/camp.jpeg";
 
 const BlogCard = async () => {
   // const res = await fetch("/blogFake.json");
@@ -49,7 +49,7 @@ const BlogCard = async () => {
                   lineHeight: 1.3,
                 }}
               >
-                Eid Prayers and Festive Celebrations Held in Open Field
+                Camp Cleaning Campaign
               </Typography>
 
               <Typography
