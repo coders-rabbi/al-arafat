@@ -6,7 +6,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Stack,
   Typography,
 } from "@mui/material";
 import Image from "next/image";
@@ -15,27 +14,28 @@ import aboutImg from "@/assets/images/about-us.jpg";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import NewsLetter from "@/components/ui/HomePage/newsLetter/newsLetter";
 
-const aboutUs = () => {
+const AboutUs = () => {
   const policies = [
-    "পবিত্র কুরআন ও আল্লাহর রাসূল মুহাম্মদ (সাল্লাল্লাহু আলাইহি ওয়া সাল্লাম)-এর সুন্নাহ তথা কর্মনীতিই আস-সুন্নাহ ফাউন্ডেশনের মূল আদর্শ।",
-    "ইসলামের প্রাথমিক যুগের শ্রেষ্ঠ মুসলিমদের অনুসৃত পদ্ধতির আলোকে কুরআন ও সুন্নাহভিত্তিক মধ্যমপন্থা অবলম্বন করা আমাদের নীতি।",
-    "উম্মাহর ঐক্য, সংহতি ও পারস্পরিক ভ্রাতৃত্বের নীতি মেনে চলা।",
-    "সৎকাজে উৎসাহ দান ও অসৎকাজ থেকে বিরত রাখার মাধ্যমে সামাজিক ও ধর্মীয় মূল্যবোধ সংরক্ষণ এবং মানবিক চেতনার জাগরণ।",
-    "ইসলামী দাওয়াহ এবং কার্যক্রমের ক্ষেত্রে উগ্রতা বা কঠোরতা পরিহার করে উদারতা ও সহনশীলতার নীতি অবলম্বন করা এবং দাওয়াহ ও অন্যান্য কার্যক্রম পরিচালনায় প্রজ্ঞা, বিচক্ষণতা এবং পরিস্থিতি বিবেচনা করে সিদ্ধান্ত গ্রহণ করা।",
-    "আল্লাহর সৃষ্টির প্রতি সহানুভূতিশীল হওয়া এবং মানুষের কল্যাণে কাজ করাকে আল্লাহর সন্তুষ্টির মাধ্যম হিসেবে দেখা।",
-    "ধর্ম, বর্ণ, গোত্র নির্বিশেষে সকল মানুষের জন্য দাওয়াহ ও সেবামূলক কার্যক্রম পরিচালনা করা।",
-    "জনগণের প্রদত্ত দান অর্থ ও সম্পদকে আল্লাহ তাআলার পক্ষ থেকে আমানত হিসেবে গণ্য করা এবং এর যথাযথ ব্যবহার নিশ্চিত করা।",
-    "সংগৃহীত তহবিল এবং ব্যয়ের প্রতিটি হিসাবের ক্ষেত্রে স্বচ্ছতা নিশ্চিত করা।",
-    "পরিচালনা পর্ষদ এবং কর্মীদের সকল কাজের জবাবদিহিতা নিশ্চিত করা।",
-    "প্রতিষ্ঠানের অভ্যন্তরীণ ও বাহ্যিক নিরীক্ষণের ব্যবস্থা রাখা।",
-    "প্রতিষ্ঠানের সকল স্তরের কর্মীদের মধ্যে সর্বোচ্চ সততা ও নৈতিকতার মান বজায় রাখা। কোনো প্রকার দুর্নীতি বা অনিয়মকে প্রশ্রয় না দেওয়া।",
-    "সকল ক্ষেত্রে পেশাদারিত্ব নিশ্চিত করা; শিক্ষা, দাওয়াহ ও সেবামূলক কার্যক্রমে গুণগত মান বজায় রাখা।",
-    "রাজনৈতিক কর্ম ও অবস্থান গ্রহণ থেকে বিরত থাকা এবং যে কোনো রাজনৈতিক দল-উপদল বা গোষ্ঠীর প্রভাবমুক্ত থেকে নিরপেক্ষভাবে কাজ করা।",
-    "দক্ষ ও যোগ্য কর্মী নিয়োগ করা এবং তাদের নিয়মিত প্রশিক্ষণের মাধ্যমে কর্মদক্ষতা বৃদ্ধি করা।",
-    "সেবা কার্যক্রমের ক্ষেত্রে দরিদ্র, অসহায়, এতিম, বিধবা এবং দুর্যোগ কবলিত মানুষকে অগ্রাধিকার দেওয়া।",
-    "দারিদ্র বিমোচন, শিক্ষা বিস্তার, স্বাস্থ্যসেবা ও কর্মমুখী প্রশিক্ষণের মাধ্যমে কর্মসংস্থানের সুযোগ সৃষ্টিকে মানবিক দায়িত্ব হিসেবে বিবেচনা করা।",
-    "সাময়িক সহযোগিতার তুলনায় স্থায়ী দারিদ্র বিমোচন ও টেকসই উন্নয়ন আমাদের নীতি।",
+    "The Holy Quran and the Sunnah (practices) of Prophet Muhammad (peace be upon him) serve as the core ideology of this foundation.",
+    "Our principle is to adopt a balanced approach based on the Quran and Sunnah, in light of the methods followed by the righteous pioneers of Islam.",
+    "To adhere strictly to the principles of unity, solidarity, and mutual brotherhood within the Ummah.",
+    "To preserve social and religious values and awaken humanitarian consciousness by encouraging good deeds and forbidding wrongdoing.",
+    "To adopt principles of generosity and tolerance in Islamic Dawah and activities, avoiding extremism or harshness, and making decisions with wisdom, discretion, and situational awareness.",
+    "To show compassion toward all of Allah's creation and view serving humanity as a means to attain His pleasure.",
+    "To conduct Dawah and welfare activities for all human beings, regardless of religion, caste, or creed.",
+    "To consider public donations, funds, and resources as a trust (Amanah) from Allah and ensure their proper utilization.",
+    "To ensure complete transparency in every aspect of collection and expenditure records.",
+    "To ensure full accountability for all actions of the governing board and internal staff.",
+    "To maintain regular internal and external auditing mechanisms for the organization.",
+    "To uphold the highest standards of honesty and ethics among all levels of staff, tolerating no form of corruption or irregularity.",
+    "To ensure professionalism in all sectors, maintaining the highest quality standards in education, Dawah, and welfare activities.",
+    "To refrain from taking political stances or engaging in political activities, working neutrally and free from the influence of any political party or group.",
+    "To recruit skilled and qualified personnel and enhance their performance through regular professional training.",
+    "To prioritize the poor, helpless, orphans, widows, and disaster-affected populations in all relief and welfare operations.",
+    "To consider poverty alleviation, the spread of education, healthcare access, and the creation of employment through vocational training as core humanitarian duties.",
+    "Our fundamental policy shifts focus toward permanent poverty alleviation and sustainable development rather than temporary relief.",
   ];
+
   return (
     <Box>
       {/* Banner Section  */}
@@ -64,7 +64,7 @@ const aboutUs = () => {
             fontWeight="bold"
             sx={{ fontSize: { xs: "2rem", md: "3.5rem" } }}
           >
-            আমাদের সম্পর্কে
+            About Us
           </Typography>
         </Box>
       </Box>
@@ -76,7 +76,7 @@ const aboutUs = () => {
               src={aboutImg}
               alt="about-image"
               style={{ width: "100%", borderRadius: "15px" }}
-            ></Image>
+            />
           </Grid2>
           <Grid2 size={{ xs: 12, md: 6 }}>
             <Typography sx={{ lineHeight: 1.8 }}>
@@ -95,9 +95,10 @@ const aboutUs = () => {
             </Typography>
           </Grid2>
         </Grid2>
+
         <Box mt={10}>
           <Typography variant="h4" fontWeight={700} textAlign="center">
-            নীতি ও আদর্শ
+            Principles & Values
           </Typography>
           <Box
             sx={{
@@ -130,7 +131,7 @@ const aboutUs = () => {
                         sx={{
                           color: "#333",
                           fontWeight: 500,
-                          lineHeight: 1.6, // আপনার আগের প্রশ্নের উত্তর অনুযায়ী লাইন হাইট
+                          lineHeight: 1.6,
                           fontSize: { xs: "0.9rem", md: "1rem" },
                         }}
                       >
@@ -150,4 +151,4 @@ const aboutUs = () => {
   );
 };
 
-export default aboutUs;
+export default AboutUs;
