@@ -1,4 +1,11 @@
-import { Card, CardContent, Container, Grid2, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Container,
+  Grid2,
+  Link,
+  Typography,
+} from "@mui/material";
 import Image from "next/image";
 import post from "@/assets/images/camp.jpeg";
 
@@ -49,7 +56,7 @@ const BlogCard = async () => {
                   lineHeight: 1.3,
                 }}
               >
-                Camp Cleaning Campaign
+                Camp Cleaning Campaign 2026
               </Typography>
 
               <Typography
@@ -61,10 +68,24 @@ const BlogCard = async () => {
                   fontFamily: '"Hind Siliguri", sans-serif',
                 }}
               >
-                For the fourth time, the Eid-ul-Fitr congregation and
-                festivities were held in the open field of Madrasatus Sunnah,
-                adjacent to the As-Sunnah Mosque Complex at Swadesh Properties
-                in Satarkul, Badda, Capital...
+                Alhamdulillah! On the auspicious eve of the holy month of
+                Ramadan, Al Arafat Foundation is proud to announce the
+                successful completion of a comprehensive cleaning drive across
+                seven blocks of KRC and various strategic locations within the
+                FDMN camps. {/* টেক্সটের ভেতরেই লিঙ্ক যুক্ত করা হলো */}
+                <Link
+                  href="/blogs" // আপনার টার্গেট পেজের পাথ এখানে দিন
+                  underline="hover" // হোভার করলে আন্ডারলাইন আসবে
+                  sx={{
+                    color: "#1976d2", // আপনার পছন্দমতো কালার দিতে পারেন
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    display: "inline-block",
+                    ml: 0.5, // আগের টেক্সট থেকে সামান্য দূরত্ব বজায় রাখার জন্য
+                  }}
+                >
+                  ...View More
+                </Link>
               </Typography>
 
               <Typography
