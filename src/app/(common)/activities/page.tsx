@@ -15,6 +15,7 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import emergencyRelif from "@/assets/images/emergency-relief.webp";
 import NewsLetter from "@/components/ui/HomePage/newsLetter/newsLetter";
 import { Suspense } from "react";
+import { getAllPosts } from "@/service/post";
 
 export interface BlogItem {
   id: number;
@@ -26,16 +27,13 @@ export interface BlogItem {
 
 // ১. ডাটা লোড করার জন্য আলাদা কম্পোনেন্ট
 const BlogList = async () => {
-  const res = await fetch(
-    "https://al-arafatfoundation-server.vercel.app/blogs",
-    { cache: "no-store" }, // বা আপনার প্রয়োজন মত ক্যাশ সেট করতে পারেন
-  );
-  const blogs: BlogItem[] = await res.json();
+  const res = await getAllPosts();
+  const blogs = res?.data || [];
 
   return (
     <Grid2 container spacing={4}>
-      {blogs.map((item: BlogItem) => (
-        <Grid2 key={item.id} size={{ xs: 12, sm: 6, md: 4 }}>
+      {blogs.map((item) => (
+        <Grid2 key={item?._id} size={{ xs: 12, sm: 6, md: 4 }}>
           <Card
             sx={{
               borderRadius: "20px",
@@ -51,8 +49,8 @@ const BlogList = async () => {
                 sx={{ position: "relative", height: "220px", width: "100%" }}
               >
                 <Image
-                  src={item.image_url || emergencyRelif}
-                  alt={item.title}
+                  src={item?.imageUrl[0] || emergencyRelif}
+                  alt={item?.title}
                   fill
                   style={{ objectFit: "cover" }}
                 />
@@ -82,35 +80,15 @@ const BlogList = async () => {
                     overflow: "hidden",
                   }}
                 >
-                  {item.title}
+                  {item?.title}
                 </Typography>
 
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: "text.secondary",
-                    mb: "15px",
-                    display: "-webkit-box",
-                    WebkitLineClamp: 3,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                  }}
-                >
-                  {item.description}
-                </Typography>
+                <div
+                  dangerouslySetInnerHTML={{ __html: item?.content }}
+                  className="line-clamp-3"
+                />
 
-                <Button
-                  variant="outlined"
-                  fullWidth
-                  sx={{
-                    mt: "auto",
-                    fontWeight: "bold",
-                    borderRadius: "10px",
-                    textTransform: "none",
-                  }}
-                >
-                  View Details
-                </Button>
+                <p className="border border-[#008e48] bg-[#008e470b] text-center py-2 rounded-sm mt-1">View Details</p>
               </CardContent>
             </CardActionArea>
           </Card>

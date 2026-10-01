@@ -6,8 +6,7 @@ import Providers from "@/lib/Providers/Providers";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 // Next.js 14-এ Inter ফন্টটি অনেক বেশি স্টেবল
 const inter = Inter({
@@ -27,13 +26,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("h-full", "antialiased", inter.variable, "font-sans", geist.variable)}>
-      <body className="min-h-full flex flex-col">
+    <html
+      lang="en"
+      className={cn(
+        "h-full",
+        "antialiased",
+        inter.variable,
+        "font-sans",
+        geist.variable,
+      )}
+    >
+      <body className="h-full flex flex-col" suppressHydrationWarning>
         {/* Providers এবং AppRouterCacheProvider এর ক্রমানুসার ঠিক করা হয়েছে */}
         <AppRouterCacheProvider>
           <Providers>
             {children}
-             <Toaster />
+            <Toaster />
           </Providers>
         </AppRouterCacheProvider>
       </body>
