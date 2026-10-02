@@ -3,9 +3,10 @@ import image from "@/assets/images/blog-banner.jpeg";
 import BlogCard from "./components/blogCard";
 import { getAllPosts } from "@/service/post";
 import HorizontalCard from "./components/horizontalCard";
+import { getAllBlogs } from "@/service/blog";
 
 const page = async () => {
-  const res = await getAllPosts();
+  const res = await getAllBlogs();
   const blogs = res.data;
   return (
     <div>

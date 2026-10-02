@@ -2,11 +2,6 @@ import { getAllPosts } from "@/service/post";
 import PageHeader from "./components/PageHeader";
 import PostsTable from "./components/PostTable";
 
-// Real API connect korar somoy:
-// import { getAllPosts } from "@/lib/services/post.service";
-// const res = await getAllPosts();
-// const posts = res.data;
-
 export default async function ProjectsPage() {
     const res = await getAllPosts();
     const posts = res.data;

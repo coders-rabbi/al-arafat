@@ -6,7 +6,7 @@ import Providers from "@/lib/Providers/Providers";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 // Next.js 14-এ Inter ফন্টটি অনেক বেশি স্টেবল
 const inter = Inter({
@@ -41,7 +41,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <Providers>
             {children}
-            <Toaster />
+            <Toaster position="top-center" />
           </Providers>
         </AppRouterCacheProvider>
       </body>

@@ -1,9 +1,10 @@
+import { TBlog } from "@/types/blog";
 import { TPost } from "@/types/post";
 import Image from "next/image";
 import Link from "next/link";
 
 type HorizontalCardProps = {
-  item: TPost;
+  item: TBlog;
   href?: string; // dile pura card clickable hobe
 };
 
@@ -16,7 +17,7 @@ const formatBanglaDate = (iso: string) =>
   });
 
 const HorizontalCard = ({ item, href }: HorizontalCardProps) => {
-  const image = item.imageUrl?.[0];
+  const image = item.images?.[0];
 
   const card = (
     <article className="flex flex-col gap-6 rounded-3xl border border-gray-100 bg-white shadow-sm transition hover:shadow-md md:flex-row md:items-stretch">

@@ -1,13 +1,13 @@
-import { TPost } from "@/types/post";
+import { TBlog } from "@/types/blog";
 import { formatDate } from "@/utils/DateFormate";
 import Image from "next/image";
 
 type BlogCardProps = {
-  blog: TPost;
+  blog: TBlog;
 };
 
 const BlogCard = ({ blog }: BlogCardProps) => {
-  const image = blog.imageUrl?.[0];
+  const image = blog.images?.[0];
 
   return (
     <div className="rounded-xl border border-gray-50 bg-white shadow-sm transition-shadow hover:shadow-md">
