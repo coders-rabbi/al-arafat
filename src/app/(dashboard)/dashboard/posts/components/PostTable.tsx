@@ -1,6 +1,6 @@
 import { TPost } from "@/types/post";
 import TableEmptyState from "./Tableemptystate";
-import PostTableRow from "./PostTableRow";
+import PostTableRow from "./Posttablerow";
 
 
 const columns = [
