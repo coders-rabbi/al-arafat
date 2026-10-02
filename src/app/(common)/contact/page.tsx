@@ -19,6 +19,7 @@ import { SendIcon } from "lucide-react";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
+
 const contact = () => {
   const contactData = [
     {
@@ -34,9 +35,11 @@ const contact = () => {
     {
       icon: <EmailIcon sx={{ color: "white" }} />,
       label: "Email",
+      // ⚠️ "founfation" bānān thik ache kina ekbar check koro (foundation hobe?)
       value: "info@alarafatfounfation.org",
     },
   ];
+
   return (
     <Box>
       {/* Banner Section */}
@@ -80,6 +83,7 @@ const contact = () => {
             alignContent="center"
             alignItems="center"
           >
+            {/* Contact Form */}
             <Grid2 size={{ xs: 12, md: 6 }}>
               <Box
                 sx={{
@@ -164,6 +168,8 @@ const contact = () => {
                 </form>
               </Box>
             </Grid2>
+
+            {/* Location + Contact info */}
             <Grid2 size={{ xs: 12, md: 6 }}>
               <Box
                 sx={{
@@ -185,15 +191,6 @@ const contact = () => {
                     borderRadius: 2,
                   }}
                 >
-                  {/* <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1014.0285416332748!2d92.16410607272373!3d21.213080636977427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sbd!4v1779390654463!5m2!1sen!2sbd"
-                    width="100%"
-                    height="350"
-                    style={{ border: 0 }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe> */}
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d232.46715312909419!2d92.1668300147152!3d21.2130266753216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDEyJzQ3LjEiTiA5MsKwMTAnMDAuOCJF!5e0!3m2!1sen!2sbd!4v1779441263964!5m2!1sen!2sbd"
                     width="100%"
@@ -204,6 +201,7 @@ const contact = () => {
                     referrerPolicy="no-referrer-when-downgrade"
                   ></iframe>
                 </Paper>
+
                 <Box sx={{ maxWidth: 500, mt: 4 }}>
                   <List>
                     {contactData.map((item, index) => (
@@ -219,11 +217,19 @@ const contact = () => {
                             {item.icon}
                           </Avatar>
                         </ListItemAvatar>
+
+                        {/*
+                          FIX: ListItemText nijei secondary ke <p> e mora,
+                          tai bhitore Typography ke component="span" korte hobe,
+                          na hole <p> er bhitore <p> hoye hydration error ashe.
+                          span inline, tai margin-top kaj korar jonno display: block.
+                        */}
                         <ListItemText
                           primary={
                             <Typography
-                              variant="h6"
+                              component="span"
                               sx={{
+                                display: "block",
                                 color: "#00894a",
                                 fontWeight: "bold",
                                 fontSize: "12px",
@@ -235,8 +241,10 @@ const contact = () => {
                           }
                           secondary={
                             <Typography
+                              component="span"
                               variant="body1"
                               sx={{
+                                display: "block",
                                 color: "#333",
                                 fontSize: "14px",
                                 mt: 0.5,
