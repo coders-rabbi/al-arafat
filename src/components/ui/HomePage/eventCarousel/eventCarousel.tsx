@@ -1,161 +1,26 @@
-"use client";
-import * as React from "react";
-import Autoplay from "embla-carousel-autoplay";
+import { getAllPosts } from "@/service/post";
+import { TPost } from "@/types/post";
+import EventCarouselClient from "./EventCarouselClient";
+import Link from "next/link";
 
-import { Card } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import {
-  Button,
-  CardActionArea,
-  CardContent,
-  Container,
-  Typography,
-  Box,
-} from "@mui/material";
-import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
-import Image from "next/image";
-import useBlog, { BlogItem } from "@/hooks/useBlog";
-
-export function EventCarousel() {
-  // ১. হুক থেকে ডাটা আনা
-  const { blogs, loading, error } = useBlog();
-
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true }),
-  );
-
-  if (loading) return <p className="text-center py-10">Loading Carousel...</p>;
-  if (error)
-    return <p className="text-center py-10 text-red-500">Error: {error}</p>;
+export async function EventCarousel() {
+  const res = await getAllPosts();
+  const blogs: TPost[] = res?.data || [];
 
   return (
-    <Container maxWidth="lg" sx={{ py: 5 }}>
-      <Box mt={15}>
-        <Typography
-          variant="h3"
-          textAlign="center"
-          fontWeight="900"
-          color="secondary.main"
-          mb={8}
-        >
-          Regular Activities
-        </Typography>
-      </Box>
-      <Carousel
-        plugins={[plugin.current]}
-        className="w-full"
-        onMouseEnter={plugin.current.stop}
-        onMouseLeave={plugin.current.reset}
-        opts={{
-          align: "start",
-          loop: true,
-        }}
+    <section className="mx-auto w-full max-w-7xl px-4">
+      <h2 className="mb-10 mt-32 text-center text-3xl font-black md:text-5xl">
+        Regular Activities
+      </h2>
+
+      <EventCarouselClient blogs={blogs} />
+      <Link
+        href="/activities"
+        className="mt-6 block text-center text-lg font-bold bg-[#008e48] text-white py-1.5
+         hover:bg-[#008e47e2] w-fit px-6 mx-auto rounded-sm transition-all duration-300"
       >
-        <CarouselContent>
-          {/* ২. blogs ডাটা ম্যাপ করা */}
-          {blogs.map((item: BlogItem) => (
-            <CarouselItem
-              key={item.id}
-              className="basis-full md:basis-1/2 lg:basis-1/3"
-            >
-              <div className="p-2 h-full">
-                <Card className="h-full border-none shadow-md overflow-hidden rounded-[20px]">
-                  <CardActionArea
-                    sx={{
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "stretch",
-                    }}
-                  >
-                    {/* ৩. ডাইনামিক ইমেজ */}
-                    <Box
-                      sx={{
-                        position: "relative",
-                        height: "200px",
-                        width: "100%",
-                      }}
-                    >
-                      <Image
-                        src={item.image_url}
-                        alt={item.title}
-                        fill
-                        style={{ objectFit: "cover" }}
-                      />
-                    </Box>
-
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography
-                        display="flex"
-                        alignItems="center"
-                        gap="5px"
-                        color="#D08545"
-                        mb="10px"
-                        variant="subtitle2"
-                      >
-                        <RocketLaunchIcon fontSize="small" /> Regular Activities
-                      </Typography>
-
-                      <Typography
-                        gutterBottom
-                        variant="h6"
-                        fontWeight="bold"
-                        sx={{
-                          display: "-webkit-box",
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                          height: "60px", // টাইটেল এলাইনমেন্ট ঠিক রাখতে
-                        }}
-                      >
-                        {item.title}
-                      </Typography>
-
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          color: "text.secondary",
-                          mb: "15px",
-                          display: "-webkit-box",
-                          WebkitLineClamp: 3,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                        }}
-                      >
-                        {item.description}
-                      </Typography>
-
-                      <Button
-                        variant="outlined"
-                        fullWidth
-                        sx={{
-                          mt: "auto",
-                          fontWeight: "900",
-                          borderRadius: "10px",
-                        }}
-                      >
-                        View More
-                      </Button>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-
-        {/* ৪. অ্যারো বাটনগুলো ছোট স্ক্রিনে হাইড রাখা ভালো বা পজিশন ঠিক করা */}
-        <div className="hidden md:block">
-          <CarouselPrevious />
-          <CarouselNext />
-        </div>
-      </Carousel>
-    </Container>
+        View More
+      </Link>
+    </section>
   );
 }

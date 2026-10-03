@@ -1,18 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import Image from "next/image";
-import {
-  Box,
-  Container,
-  Dialog,
-  MenuItem,
-  Tab,
-  Tabs,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { GalleryItem, galleryItems } from "@/data/gallery";
+import { useEffect, useMemo, useState } from "react";
+import { Play, X } from "lucide-react";
+import { TMedia, TMediaType } from "@/types/media";
+import { getYouTubeId, getYouTubeThumbnail } from "@/lib/youtube";
 
 const BN_MONTHS = [
   "জানুয়ারি",
@@ -29,251 +20,188 @@ const BN_MONTHS = [
   "ডিসেম্বর",
 ];
 
+const TABS: { value: TMediaType; label: string }[] = [
+  { value: "image", label: "ছবি" },
+  { value: "video", label: "ভিডিও" },
+];
+
+// createdAt (UTC) ke Bangladesh time (UTC+6) e "YYYY-MM" banai
+const monthKey = (iso: string) =>
+  new Date(new Date(iso).getTime() + 6 * 60 * 60 * 1000)
+    .toISOString()
+    .slice(0, 7);
+
 const monthLabel = (key: string) => {
   const [y, m] = key.split("-");
   return `${BN_MONTHS[Number(m) - 1]} ${Number(y).toLocaleString("bn-BD", { useGrouping: false })}`;
 };
 
-export default function GalleryTabs() {
-  const [tab, setTab] = useState<"photo" | "video">("photo");
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleDateString("bn-BD", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "Asia/Dhaka",
+  });
+
+export default function GalleryTabs({ items }: { items: TMedia[] }) {
+  const [tab, setTab] = useState<TMediaType>("image");
   const [month, setMonth] = useState("all");
-  const [selected, setSelected] = useState<GalleryItem | null>(null);
+  const [selected, setSelected] = useState<TMedia | null>(null);
 
   const tabItems = useMemo(
     () =>
-      galleryItems
+      items
         .filter((i) => i.type === tab)
-        .sort((a, b) => b.date.localeCompare(a.date)),
-    [tab],
+        .sort((a, b) => b.createdAt.localeCompare(a.createdAt)),
+    [items, tab],
   );
 
   const months = useMemo(
-    () => Array.from(new Set(tabItems.map((i) => i.date.slice(0, 7)))),
+    () => Array.from(new Set(tabItems.map((i) => monthKey(i.createdAt)))),
     [tabItems],
   );
 
   const visible =
     month === "all"
       ? tabItems
-      : tabItems.filter((i) => i.date.startsWith(month));
+      : tabItems.filter((i) => monthKey(i.createdAt) === month);
+
+  // Esc chaple lightbox bondho
+  useEffect(() => {
+    if (!selected) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setSelected(null);
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [selected]);
+
+  const selectedYtId =
+    selected?.type === "video" ? getYouTubeId(selected.url) : null;
 
   return (
-    <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
+    <section className="mx-auto w-full max-w-[1200px] px-4 py-8 md:py-12">
       {/* ট্যাব + ফিল্টার */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", sm: "row" },
-          justifyContent: "space-between",
-          alignItems: { xs: "stretch", sm: "center" },
-          gap: 2,
-          mb: 4,
-        }}
-      >
-        <Tabs
-          value={tab}
-          onChange={(_, v) => {
-            setTab(v);
-            setMonth("all");
-          }}
-          sx={{
-            bgcolor: "grey.100",
-            borderRadius: 999,
-            p: 0.5,
-            minHeight: 0,
-            width: "fit-content",
-            "& .MuiTabs-indicator": { display: "none" },
-            "& .MuiTab-root": {
-              minHeight: 0,
-              borderRadius: 999,
-              px: 3,
-              py: 1,
-              fontWeight: 600,
-              textTransform: "none",
-            },
-            "& .Mui-selected": {
-              bgcolor: "primary.main",
-              color: "#fff !important",
-            },
-          }}
-        >
-          <Tab value="photo" label="ছবি" disableRipple />
-          <Tab value="video" label="ভিডিও" disableRipple />
-        </Tabs>
+      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex w-fit rounded-full bg-gray-100 p-1">
+          {TABS.map((t) => (
+            <button
+              key={t.value}
+              type="button"
+              onClick={() => {
+                setTab(t.value);
+                setMonth("all");
+              }}
+              className={`rounded-full px-6 py-2 text-sm font-semibold transition-colors ${
+                tab === t.value
+                  ? "bg-[#008e48] text-white"
+                  : "text-gray-700 hover:bg-gray-200"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
 
-        <TextField
-          select
-          size="small"
-          label="মাস অনুযায়ী"
+        <select
           value={month}
           onChange={(e) => setMonth(e.target.value)}
-          sx={{ minWidth: 200 }}
+          aria-label="মাস অনুযায়ী"
+          className="min-w-[200px] rounded-md border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-[#008e48]"
         >
-          <MenuItem value="all">সব সময়</MenuItem>
+          <option value="all">সব সময়</option>
           {months.map((m) => (
-            <MenuItem key={m} value={m}>
+            <option key={m} value={m}>
               {monthLabel(m)}
-            </MenuItem>
+            </option>
           ))}
-        </TextField>
-      </Box>
+        </select>
+      </div>
 
       {/* গ্রিড */}
       {visible.length === 0 ? (
-        <Typography align="center" color="text.secondary" py={8}>
-          এই সময়ে কোনো {tab === "photo" ? "ছবি" : "ভিডিও"} পাওয়া যায়নি।
-        </Typography>
+        <p className="py-16 text-center text-gray-500">
+          এই সময়ে কোনো {tab === "image" ? "ছবি" : "ভিডিও"} পাওয়া যায়নি।
+        </p>
       ) : (
-        <Box
-          sx={{
-            display: "grid",
-            gap: 3,
-            gridTemplateColumns: {
-              xs: "1fr",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-            },
-          }}
-        >
-          {visible.map((item) => (
-            <Box
-              key={item.id}
-              onClick={() => setSelected(item)}
-              sx={{
-                position: "relative",
-                aspectRatio: "4 / 3",
-                borderRadius: 3,
-                overflow: "hidden",
-                cursor: "pointer",
-                boxShadow: 2,
-                "& img": { transition: "transform .4s" },
-                "&:hover img": { transform: "scale(1.08)" },
-                "&:hover .caption": { opacity: 1 },
-              }}
-            >
-              {item.type === "photo" ? (
-                <Image
-                  src={item.src!}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
-                  style={{ objectFit: "cover" }}
-                />
-              ) : (
-                <>
-                  <Box
-                    component="img"
-                    src={`https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`}
-                    alt={item.title}
-                    sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-                  />
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      inset: 0,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        width: 64,
-                        height: 64,
-                        borderRadius: "50%",
-                        bgcolor: "rgba(0,0,0,0.65)",
-                        color: "#fff",
-                        fontSize: 26,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        pl: 0.5,
-                      }}
-                    >
-                      ▶
-                    </Box>
-                  </Box>
-                </>
-              )}
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+          {visible.map((item) => {
+            const ytId = item.type === "video" ? getYouTubeId(item.url) : null;
+            const thumb =
+              item.type === "image"
+                ? item.url
+                : item.thumbnail || (ytId ? getYouTubeThumbnail(ytId) : "");
 
-              <Box
-                className="caption"
-                sx={{
-                  position: "absolute",
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  p: 2,
-                  color: "#fff",
-                  background: "linear-gradient(transparent, rgba(0,0,0,0.8))",
-                  opacity: { xs: 1, md: 0 },
-                  transition: "opacity .3s",
-                }}
+            return (
+              <div
+                key={item._id}
+                onClick={() => setSelected(item)}
+                className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-2xl shadow-md"
               >
-                <Typography fontWeight={600}>{item.title}</Typography>
-                <Typography variant="caption">
-                  {new Date(item.date).toLocaleDateString("bn-BD", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                    timeZone: "UTC",
-                  })}
-                </Typography>
-              </Box>
-            </Box>
-          ))}
-        </Box>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={thumb}
+                  alt={item.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+
+                {item.type === "video" && (
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-black/65 text-white">
+                      <Play className="h-7 w-7 fill-white" />
+                    </span>
+                  </div>
+                )}
+
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100">
+                  <p className="font-semibold">{item.title}</p>
+                  <p className="text-xs">{formatDate(item.createdAt)}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       )}
 
       {/* Lightbox */}
-      <Dialog
-        open={!!selected}
-        onClose={() => setSelected(null)}
-        maxWidth="lg"
-        fullWidth
-        slotProps={{ paper: { sx: { bgcolor: "#000", borderRadius: 2 } } }}
-      >
-        {selected && (
-          <Box sx={{ position: "relative", aspectRatio: "16 / 9" }}>
-            {selected.type === "photo" ? (
-              <Image
-                src={selected.src!}
+      {selected && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div
+            className="absolute inset-0 bg-black/80"
+            onClick={() => setSelected(null)}
+          />
+
+          <div className="relative aspect-video w-full max-w-5xl overflow-hidden rounded-lg bg-black">
+            {selected.type === "image" ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={selected.url}
                 alt={selected.title}
-                fill
-                sizes="100vw"
-                style={{ objectFit: "contain" }}
+                className="h-full w-full object-contain"
               />
-            ) : (
+            ) : selectedYtId ? (
               <iframe
-                src={`https://www.youtube-nocookie.com/embed/${selected.youtubeId}?autoplay=1`}
+                src={`https://www.youtube-nocookie.com/embed/${selectedYtId}?autoplay=1`}
                 title={selected.title}
                 allow="autoplay; encrypted-media; fullscreen"
                 allowFullScreen
-                style={{ width: "100%", height: "100%", border: 0 }}
+                className="h-full w-full border-0"
               />
+            ) : (
+              <p className="p-6 text-sm text-white">ভিডিও লোড করা যায়নি।</p>
             )}
-            <Box
+
+            <button
+              type="button"
               onClick={() => setSelected(null)}
-              sx={{
-                position: "absolute",
-                top: 8,
-                right: 8,
-                width: 36,
-                height: 36,
-                borderRadius: "50%",
-                bgcolor: "rgba(0,0,0,0.6)",
-                color: "#fff",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-              }}
+              aria-label="Close"
+              className="absolute right-2 top-2 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80"
             >
-              ✕
-            </Box>
-          </Box>
-        )}
-      </Dialog>
-    </Container>
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+      )}
+    </section>
   );
 }
