@@ -14,7 +14,6 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import bannerImg from "@/assets/images/activities-banner.jpeg";
-import NewsLetter from "@/components/ui/HomePage/newsLetter/newsLetter";
 import { SendIcon } from "lucide-react";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -263,9 +262,6 @@ const contact = () => {
             </Grid2>
           </Grid2>
         </Box>
-
-        {/*New Letter Section*/}
-        <NewsLetter />
       </Container>
     </Box>
   );

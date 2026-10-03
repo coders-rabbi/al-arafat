@@ -24,7 +24,7 @@ const page = async () => {
 
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
         {blogs.slice(1).map((item) => (
-          <BlogCard key={item?._id} blog={item} />
+          <BlogCard key={item?._id} blog={item} href={`/blogs/${item._id}`} />
         ))}
       </div>
     </div>

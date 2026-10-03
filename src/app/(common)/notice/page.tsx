@@ -2,7 +2,6 @@ import { Box, Container, Typography, Stack } from "@mui/material";
 import blogbanner from "@/assets/images/blog-banner.jpeg";
 import Image from "next/image";
 import FolderIcon from "@mui/icons-material/Folder";
-import NewsLetter from "@/components/ui/HomePage/newsLetter/newsLetter";
 
 const NoticeBoardPage = () => {
   return (
@@ -62,7 +61,6 @@ const NoticeBoardPage = () => {
             <br /> Please check back later for updates.
           </Typography>
         </Stack>
-        <NewsLetter />
       </Container>
     </Box>
   );

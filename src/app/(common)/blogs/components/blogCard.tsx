@@ -1,15 +1,17 @@
 import { TBlog } from "@/types/blog";
 import { formatDate } from "@/utils/DateFormate";
 import Image from "next/image";
+import Link from "next/link";
 
 type BlogCardProps = {
   blog: TBlog;
+  href?: string; // dile pura card clickable hobe
 };
 
-const BlogCard = ({ blog }: BlogCardProps) => {
+const BlogCard = ({ blog, href }: BlogCardProps) => {
   const image = blog.images?.[0];
 
-  return (
+  const card = (
     <div className="rounded-xl border border-gray-50 bg-white shadow-sm transition-shadow hover:shadow-md">
       <div className="relative aspect-video bg-gray-100 ">
         {image ? (
@@ -35,6 +37,14 @@ const BlogCard = ({ blog }: BlogCardProps) => {
         <small>{formatDate(blog.createdAt)}</small>
       </div>
     </div>
+  );
+
+  return href ? (
+    <Link href={href} className="block">
+      {card}
+    </Link>
+  ) : (
+    card
   );
 };
 

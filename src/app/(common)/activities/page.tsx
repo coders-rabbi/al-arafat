@@ -13,7 +13,6 @@ import Image from "next/image";
 import bannerImg from "@/assets/images/activities-banner.jpeg";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import emergencyRelif from "@/assets/images/emergency-relief.webp";
-import NewsLetter from "@/components/ui/HomePage/newsLetter/newsLetter";
 import { Suspense } from "react";
 import { getAllPosts } from "@/service/post";
 
@@ -195,7 +194,6 @@ const ActivitiesPage = () => {
           <BlogList />
         </Suspense>
 
-        <NewsLetter />
       </Container>
     </Box>
   );

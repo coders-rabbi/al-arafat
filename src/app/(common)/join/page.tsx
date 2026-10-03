@@ -1,7 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import bannerImg from "@/assets/images/activities-banner.jpeg";
-import NewsLetter from "@/components/ui/HomePage/newsLetter/newsLetter";
 const page = () => {
   return (
     <Box>
@@ -46,8 +45,6 @@ const page = () => {
           on any option according to your interest.
         </Typography>
       </Container>
-
-      <NewsLetter />
     </Box>
   );
 };

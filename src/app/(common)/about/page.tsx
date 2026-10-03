@@ -12,7 +12,6 @@ import Image from "next/image";
 import bannerImg from "@/assets/images/activities-banner.jpeg";
 import aboutImg from "@/assets/images/about-us.jpg";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import NewsLetter from "@/components/ui/HomePage/newsLetter/newsLetter";
 
 const AboutUs = () => {
   const policies = [
@@ -144,8 +143,6 @@ const AboutUs = () => {
             </List>
           </Box>
         </Box>
-
-        <NewsLetter />
       </Container>
     </Box>
   );

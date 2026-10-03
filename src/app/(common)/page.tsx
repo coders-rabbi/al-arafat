@@ -15,7 +15,6 @@ const HomePage = () => {
       <EventCarousel/>
       <PojectVideo/>
       <BlogCard />
-      <NewsLetter/>
       {/* <CarouselSize /> */}
     </>
   );
