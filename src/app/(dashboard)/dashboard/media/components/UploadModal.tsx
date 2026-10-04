@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { Controller, useForm, useWatch } from "react-hook-form";
 import { ImageIcon, Video, X } from "lucide-react";
 import ImageUploader, {
   TImageValue,
@@ -9,7 +10,6 @@ import { getYouTubeId, getYouTubeThumbnail } from "@/lib/youtube";
 import { createMedia } from "@/service/media";
 import { toast } from "sonner";
 import { TMedia, TMediaPayload } from "@/types/media";
-import { Controller, useForm, useWatch } from "react-hook-form";
 
 type Props = {
   open: boolean;
@@ -45,14 +45,6 @@ const UploadModal = ({ open, onClose, onUploaded }: Props) => {
   const youtubeUrl = useWatch({ control, name: "youtubeUrl" });
   const youtubeId = getYouTubeId(youtubeUrl);
 
-  // modal bondho hole form reset
-  useEffect(() => {
-    if (!open) {
-      reset(defaultValues);
-      setIsUploading(false);
-    }
-  }, [open, reset]);
-
   if (!open) return null;
 
   const canSubmit =
@@ -60,6 +52,7 @@ const UploadModal = ({ open, onClose, onUploaded }: Props) => {
     title.trim().length > 0 &&
     (kind === "image" ? !!image.url : !!youtubeId);
 
+  // modal bondho hole form reset (useEffect er bodole ekhanei reset kora hocche)
   const handleClose = () => {
     if (isUploading) return;
     reset(defaultValues);
@@ -98,6 +91,7 @@ const UploadModal = ({ open, onClose, onUploaded }: Props) => {
       );
     }
   };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/50" onClick={handleClose} />
