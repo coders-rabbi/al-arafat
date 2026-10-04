@@ -62,6 +62,7 @@ const UploadModal = ({ open, onClose, onUploaded }: Props) => {
 
   const handleClose = () => {
     if (isUploading) return;
+    reset(defaultValues);
     onClose();
   };
 
@@ -86,6 +87,7 @@ const UploadModal = ({ open, onClose, onUploaded }: Props) => {
       if (res.success) {
         toast.success("Media add successfull");
         if (res.data) onUploaded?.([res.data]);
+        reset(defaultValues);
         onClose();
       } else {
         toast.error(res.message || "Something went wrong");
