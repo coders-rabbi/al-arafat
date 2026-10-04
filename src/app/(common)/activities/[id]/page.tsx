@@ -10,8 +10,13 @@ type PageProps = {
 const Page = async ({ params }: PageProps) => {
   const { id } = await params;
 
-  const res = await getActivityById(id);
-  const data = res?.data;
+  let data = null;
+  try {
+    const res = await getActivityById(id);
+    data = res?.data;
+  } catch (error) {
+    console.error("getActivityById failed:", id, error);
+  }
 
   if (!data) notFound();
 
