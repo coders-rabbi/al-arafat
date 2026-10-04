@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Controller, useForm } from "react-hook-form";
 import { ImageIcon, Video, X } from "lucide-react";
 import ImageUploader, {
   TImageValue,
@@ -10,6 +9,7 @@ import { getYouTubeId, getYouTubeThumbnail } from "@/lib/youtube";
 import { createMedia } from "@/service/media";
 import { toast } from "sonner";
 import { TMedia, TMediaPayload } from "@/types/media";
+import { Controller, useForm, useWatch } from "react-hook-form";
 
 type Props = {
   open: boolean;
@@ -36,13 +36,13 @@ const defaultValues: FormValues = {
 const UploadModal = ({ open, onClose, onUploaded }: Props) => {
   const [isUploading, setIsUploading] = useState(false);
 
-  const { register, control, handleSubmit, reset, watch, setValue } =
+  const { register, control, handleSubmit, reset, setValue } =
     useForm<FormValues>({ defaultValues });
 
-  const kind = watch("kind");
-  const title = watch("title");
-  const image = watch("image");
-  const youtubeUrl = watch("youtubeUrl");
+  const kind = useWatch({ control, name: "kind" });
+  const title = useWatch({ control, name: "title" });
+  const image = useWatch({ control, name: "image" });
+  const youtubeUrl = useWatch({ control, name: "youtubeUrl" });
   const youtubeId = getYouTubeId(youtubeUrl);
 
   // modal bondho hole form reset
