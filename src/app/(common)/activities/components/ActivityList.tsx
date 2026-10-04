@@ -12,7 +12,7 @@ const ActivityList = async () => {
         <ActivityCard
           key={item?._id}
           item={item}
-          href={`https://alarafatfoundation.org/activities/${item?._id}`}
+          href={`/activities/${item?._id}`}
         />
       ))}
     </div>
