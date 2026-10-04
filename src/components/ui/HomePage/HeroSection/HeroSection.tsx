@@ -5,28 +5,6 @@ import zIndex from "@mui/material/styles/zIndex";
 
 const HeroSection = () => {
   return (
-    // <Box sx={{ bgcolor: "#0F2920", position: "relative", height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-    //   <Box>
-    //     {/* <Box
-    //       sx={{
-    //         position: "absolute",
-    //         top: 0,
-    //         left: 0,
-    //         width: "100%",
-    //         height: "100%",
-    //         zIndex: -1
-    //       }}
-    //     >
-    //       <Image
-    //         src={Hero}
-    //         alt="Hero Background"
-    //         fill
-    //         style={{ objectFit: "cover" }}
-    //       />
-    //     </Box> */}
-    //   </Box>
-    // </Box>
-
     <Box>
       <Box position="relative">
         <Box sx={{ height: "100vh", overflow: "hidden" }}>
@@ -95,11 +73,11 @@ const HeroSection = () => {
               </Box>
             </Typography>
             <Box mt={3} ml="8%">
-              <Button>Read More</Button>
+              <Button href="/blogs">Read More</Button>
               <Button
                 variant="outlined"
                 component={Link}
-                href="/events"
+                href="/activities"
                 sx={{
                   marginLeft: "20px",
                   color: "white",
