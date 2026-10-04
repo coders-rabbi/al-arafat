@@ -1,4 +1,3 @@
-
 import { TPost, TPostPayload, TUpdatePostPayload } from "@/types/post";
 import { apiClientRaw, ApiResponse } from "../apiClient";
 
@@ -20,7 +19,7 @@ export const getAllPosts = async (): Promise<ApiResponse<TPost[]>> => {
   });
 };
 
-export const getPostById = async (
+export const getActivityById = async (
   postId: string,
 ): Promise<ApiResponse<TPost>> => {
   return apiClientRaw<TPost>(`/posts/${postId}`, {
