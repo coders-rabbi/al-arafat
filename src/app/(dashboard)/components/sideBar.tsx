@@ -8,6 +8,7 @@ import Image from "next/image";
 const links = [
   { href: "/dashboard", label: "Overview", icon: "📊" },
   { href: "/dashboard/projects", label: "Projects", icon: "📁" },
+  { href: "/dashboard/donations", label: "Donations", icon: "💝" },
   { href: "/dashboard/blog", label: "Add Blog", icon: "➕" },
   { href: "/dashboard/activities", label: "Activities", icon: "🎯" },
   { href: "/dashboard/media", label: "Media", icon: "🖼️" },

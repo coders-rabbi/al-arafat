@@ -1,19 +1,4 @@
-const stats = [
-  { label: "Total Projects", value: "24", note: "▲ 3 this month", icon: "📁" },
-  {
-    label: "Beneficiaries",
-    value: "3,420",
-    note: "▲ 12% vs last month",
-    icon: "🤝",
-  },
-  {
-    label: "Total Expense",
-    value: "৳42.5L",
-    note: "▲ ৳6.3L this month",
-    icon: "💰",
-  },
-  { label: "Districts Covered", value: "11", note: "▲ 2 new", icon: "📍" },
-];
+import { getAllDonations } from "@/service/donation";
 
 const monthly = [
   { month: "Apr", value: 3.2 },
@@ -69,8 +54,48 @@ const projects = [
 const card =
   "rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900";
 
-export default function OverviewPage() {
+export default async function OverviewPage() {
   const max = Math.max(...monthly.map((m) => m.value));
+
+  const res = await getAllDonations();
+  const allData = res?.data ?? [];
+  const donationsData = allData.filter((item) => item?.status === "verified");
+  // মোট donation যোগ করা
+  const totalCollections = donationsData.reduce(
+    (sum: number, item: { amount?: number | string }) =>
+      sum + (Number(item?.amount) || 0),
+    0,
+  );
+
+  // বাংলাদেশি ফরম্যাটে (১,২৩,৪৫৬)
+  const formattedTotal = `৳${totalCollections.toLocaleString("en-BD")}`;
+
+  const stats = [
+    {
+      label: "Total Projects",
+      value: "8",
+      note: "▲ 3 this month",
+      icon: "📁",
+    },
+    {
+      label: "Beneficiaries",
+      value: "3,420",
+      note: "▲ 12% vs last month",
+      icon: "🤝",
+    },
+    {
+      label: "Total Donate",
+      value: formattedTotal,
+      note: `${donationsData.length} টি donation`,
+      icon: "💝",
+    },
+    {
+      label: "Total Expense",
+      value: "৳00",
+      note: "▲ ৳6.3L this month",
+      icon: "💰",
+    },
+  ];
 
   return (
     <div className="space-y-5">
