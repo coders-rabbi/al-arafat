@@ -12,7 +12,7 @@ const links = [
   { href: "/dashboard/blog", label: "Add Blog", icon: "➕" },
   { href: "/dashboard/activities", label: "Activities", icon: "🎯" },
   { href: "/dashboard/media", label: "Media", icon: "🖼️" },
-  { href: "/dashboard/users", label: "Users", icon: "👥" },
+  // { href: "/dashboard/users", label: "Users", icon: "👥" },
   { href: "/dashboard/settings", label: "Settings", icon: "⚙️" },
 ];
 
