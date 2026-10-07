@@ -1,6 +1,7 @@
 // components/donation/DonationTable.tsx
 "use client";
 
+import { toast } from "sonner";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Check, X } from "lucide-react";
@@ -40,30 +41,51 @@ export default function DonationTable({ donations }: DonationTableProps) {
   const router = useRouter();
   const [loadingId, setLoadingId] = useState<string | null>(null);
 
-  async function handleStatus(
+  function handleStatus(
     id: string,
     status: Exclude<TDonationStatus, "pending">,
   ) {
-    const ok = window.confirm(
+    const message =
       status === "verified"
         ? "এই donation verify করবেন?"
-        : "এই donation reject করবেন?",
-    );
-    if (!ok) return;
+        : "এই donation reject করবেন?";
 
+    toast(message, {
+      description: "এই কাজটি confirm করলে status পরিবর্তন হয়ে যাবে।",
+      duration: 10000,
+      action: {
+        label: status === "verified" ? "হ্যাঁ" : "হ্যাঁ",
+        onClick: () => runUpdate(id, status),
+      },
+      cancel: {
+        label: "না",
+        onClick: () => {},
+      },
+    });
+  }
+
+  async function runUpdate(
+    id: string,
+    status: Exclude<TDonationStatus, "pending">,
+  ) {
     try {
       setLoadingId(id);
       const res = await updateDonationStatus(id, status);
 
       if (res?.success === false) {
-        alert(res?.message || "Status update failed");
+        toast.error(res?.message ?? "Status update করা যায়নি");
         return;
       }
 
-      router.refresh(); // সার্ভার পেজ নতুন ডেটা আনবে
+      toast.success(
+        status === "verified"
+          ? "Donation verify করা হয়েছে"
+          : "Donation reject করা হয়েছে",
+      );
+      router.refresh();
     } catch (err) {
       console.error(err);
-      alert("কিছু একটা সমস্যা হয়েছে, আবার চেষ্টা করুন");
+      toast.error("কিছু একটা সমস্যা হয়েছে, আবার চেষ্টা করুন");
     } finally {
       setLoadingId(null);
     }
