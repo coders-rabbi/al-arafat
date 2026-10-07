@@ -1,9 +1,11 @@
 // components/blog/BlogTable.tsx
 "use client";
-
+import { toast } from "sonner";
 import Image from "next/image";
 import Link from "next/link";
 import { Pencil, Trash2 } from "lucide-react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -15,10 +17,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { TBlog } from "@/types/blog";
+import { deleteBlog } from "@/service/blog";
 
 type BlogTableProps = {
   blogs: TBlog[];
-  onDelete?: (id: string) => void;
 };
 
 const formatDate = (date: string) =>
@@ -28,7 +30,45 @@ const formatDate = (date: string) =>
     year: "numeric",
   });
 
-export default function BlogTable({ blogs, onDelete }: BlogTableProps) {
+export default function BlogTable({ blogs }: BlogTableProps) {
+  const [loadingId, setLoadingId] = useState<string | null>(null);
+  const router = useRouter();
+
+  function handleDelete(id: string) {
+    toast("এই blog delete করবেন?", {
+      description: "Blog টি delete হয়ে যাবে।",
+      duration: 10000,
+      action: {
+        label: "হ্যাঁ",
+        onClick: () => runDelete(id),
+      },
+      cancel: {
+        label: "না",
+        onClick: () => {},
+      },
+    });
+  }
+
+  async function runDelete(id: string) {
+    try {
+      setLoadingId(id);
+      const res = await deleteBlog(id);
+
+      if (res?.success === false) {
+        toast.error(res?.message ?? "Blog delete করা যায়নি");
+        return;
+      }
+
+      toast.success("Blog delete করা হয়েছে");
+      router.refresh();
+    } catch (err) {
+      console.error(err);
+      toast.error("কিছু একটা সমস্যা হয়েছে, আবার চেষ্টা করুন");
+    } finally {
+      setLoadingId(null);
+    }
+  }
+
   return (
     <div className="rounded-md border">
       <Table>
@@ -55,7 +95,7 @@ export default function BlogTable({ blogs, onDelete }: BlogTableProps) {
                   <div className="relative h-12 w-16 overflow-hidden rounded-md bg-muted">
                     {blog.images?.[0] && (
                       <Image
-                        src={blog?.images?.[0]}
+                        src={blog.images[0]}
                         alt={blog.title}
                         fill
                         sizes="64px"
@@ -82,7 +122,8 @@ export default function BlogTable({ blogs, onDelete }: BlogTableProps) {
                     <Button
                       size="icon"
                       variant="destructive"
-                      onClick={() => onDelete?.(blog._id)}
+                      disabled={loadingId === blog._id}
+                      onClick={() => handleDelete(blog._id)}
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>

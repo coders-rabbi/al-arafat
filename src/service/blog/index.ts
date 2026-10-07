@@ -38,3 +38,10 @@ export const getSingleBlog = async (
     method: "GET",
   });
 };
+
+// Delete blog (soft delete)
+export const deleteBlog = async (id: string): Promise<ApiResponse<null>> => {
+  return apiClientRaw<null>(`/blogs/${id}/delete`, {
+    method: "PATCH",
+  });
+};
