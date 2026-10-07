@@ -1,28 +1,40 @@
+"use client";
+
 import Link from "next/link";
+import { FaPencil, FaTrash } from "react-icons/fa6";
 
-const base = "rounded-lg px-2.5 py-1.5 text-xs font-semibold transition";
+const base =
+  "inline-flex items-center justify-center rounded-lg px-2.5 py-1.5 text-xs font-semibold transition disabled:cursor-not-allowed disabled:opacity-50";
 
-export default function RowActions({ postId }: { postId: string }) {
+type RowActionsProps = {
+  activitieId: string;
+  onDelete: (id: string) => void;
+  isDeleting?: boolean;
+};
+
+export default function RowActions({
+  activitieId,
+  onDelete,
+  isDeleting = false,
+}: RowActionsProps) {
   return (
     <div className="flex items-center justify-end gap-1.5">
       <Link
-        href={`/dashboard/projects/${postId}`}
-        className={`${base} text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800`}
+        href={`/dashboard/blogs/edit/${activitieId}`}
+        aria-label="Edit blog"
+        className={`${base} border border-gray-300 bg-white text-gray-700 hover:bg-gray-100`}
       >
-        View
+        <FaPencil className="h-4 w-4" />
       </Link>
-      <Link
-        href={`/dashboard/projects/${postId}/edit`}
-        className={`${base} text-emerald-700 hover:bg-emerald-50 dark:text-emerald-400 dark:hover:bg-emerald-950`}
-      >
-        Edit
-      </Link>
-      {/* Delete handler pore lagbe, tokhon eta Client Component banate hobe */}
+
       <button
         type="button"
-        className={`${base} text-rose-600 hover:bg-rose-50 dark:text-rose-400 dark:hover:bg-rose-950`}
+        aria-label="Delete blog"
+        disabled={isDeleting}
+        onClick={() => onDelete(activitieId)}
+        className={`${base} bg-red-600 text-white hover:bg-red-700`}
       >
-        Delete
+        <FaTrash className="h-4 w-4" />
       </button>
     </div>
   );

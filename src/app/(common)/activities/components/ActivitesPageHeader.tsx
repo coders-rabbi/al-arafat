@@ -1,7 +1,7 @@
-import { TPost } from "@/types/post";
+import { TActivitie } from "@/types/Activities";
 
 type PageHeaderProps = {
-  data: TPost;
+  data: TActivitie;
 };
 
 /* ছোট বৃত্তগুলোর সাইজ ও অবস্থান (বড় স্ক্রিনে) */

@@ -13,9 +13,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { TPost } from "@/types/post";
+import { TActivitie } from "@/types/Activities";
 
-export default function EventCarouselClient({ blogs }: { blogs: TPost[] }) {
+export default function EventCarouselClient({ blogs }: { blogs: TActivitie[] }) {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true }),
   );

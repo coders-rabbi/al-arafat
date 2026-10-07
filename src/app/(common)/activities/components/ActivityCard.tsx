@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { Rocket } from "lucide-react";
 import emergencyRelif from "@/assets/images/emergency-relief.webp";
-import { getAllPosts } from "@/service/post";
+import { getAllActivitie } from "@/service/Activities";
 import Link from "next/link";
 
 // getAllPosts এর রিটার্ন টাইপ থেকে একটি পোস্টের টাইপ বের করা হয়েছে।
 // আপনার প্রজেক্টে আলাদা টাইপ (যেমন TPost) থাকলে সেটি ইমপোর্ট করে এখানে বসাতে পারেন।
 export type TActivityPost = NonNullable<
-  Awaited<ReturnType<typeof getAllPosts>>["data"]
+  Awaited<ReturnType<typeof getAllActivitie>>["data"]
 >[number];
 
 type ActivityCardProps = {

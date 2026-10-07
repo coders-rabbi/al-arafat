@@ -8,8 +8,8 @@ import { toast } from "sonner";
 import RichTextEditor from "@/app/(dashboard)/components/RechTextEditor";
 import ImageUploader, {
   TImageValue,
-} from "../../activities/create-post/components/ImageUploader";
-import FormInput from "../../activities/create-post/components/FormInput";
+} from "../../activities/create-activitie/components/ImageUploader";
+import FormInput from "../../activities/create-activitie/components/FormInput";
 import { TBlogPayload } from "@/types/blog";
 import { createBlog } from "@/service/blog";
 

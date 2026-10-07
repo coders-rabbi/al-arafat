@@ -1,9 +1,9 @@
-import { TPost } from "@/types/post";
+import { TActivitie } from "@/types/Activities";
 import { getYouTubeId } from "@/lib/youtube";
 import InfoListCard from "./Infolistcard";
 
 type ActivityDetailsProps = {
-  data: TPost;
+  data: TActivitie;
 };
 
 /**

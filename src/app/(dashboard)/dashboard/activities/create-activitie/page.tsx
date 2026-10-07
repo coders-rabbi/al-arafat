@@ -1,7 +1,7 @@
 
 import PageHeader from "../components/PageHeader";
-import CreatePostForm from "./components/CreatePostForm";
-export default function CreatePostPage() {
+import CreateActiviteForm from "./components/CreateActivitesForm";
+export default function CreateActivitiePage() {
   return (
     <div className="mx-auto space-y-5">
       <PageHeader
@@ -10,7 +10,7 @@ export default function CreatePostPage() {
         actionLabel="← Back to Posts"
         actionHref="/dashboard/posts"
       />
-      <CreatePostForm />
+      <CreateActiviteForm />
     </div>
   );
 }

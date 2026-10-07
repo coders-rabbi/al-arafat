@@ -1,5 +1,5 @@
 import { TBlog } from "@/types/blog";
-import { TPost } from "@/types/post";
+import { TActivitie } from "@/types/Activities";
 import Image from "next/image";
 import Link from "next/link";
 

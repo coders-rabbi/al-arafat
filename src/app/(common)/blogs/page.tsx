@@ -1,7 +1,7 @@
 import PageCover from "@/components/pageCover";
 import image from "@/assets/images/blog-banner.jpeg";
 import BlogCard from "./components/blogCard";
-import { getAllPosts } from "@/service/post";
+import { getAllActivitie } from "@/service/Activities";
 import HorizontalCard from "./components/horizontalCard";
 import { getAllBlogs } from "@/service/blog";
 

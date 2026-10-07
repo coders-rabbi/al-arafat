@@ -1,9 +1,9 @@
-import { getAllPosts } from "@/service/post";
+import { getAllActivitie } from "@/service/Activities";
 import ActivityCard from "./ActivityCard";
 
 // ডাটা লোড করার কম্পোনেন্ট (Server Component)
 const ActivityList = async () => {
-  const res = await getAllPosts();
+  const res = await getAllActivitie();
   const blogs = res?.data || [];
 
   return (

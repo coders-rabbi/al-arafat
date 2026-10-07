@@ -1,4 +1,4 @@
-export type TPost = {
+export type TActivitie = {
   _id: string;
   title: string;
   content: string;
@@ -13,7 +13,7 @@ export type TPost = {
   updatedAt: string;
 };
 
-export type TPostPayload = {
+export type TActivitiePayload = {
   title: string;
   content: string;
   imageUrl?: string[];
@@ -25,4 +25,4 @@ export type TPostPayload = {
   duration: string;
 };
 
-export type TUpdatePostPayload = Partial<TPostPayload>;
+export type TUpdatePostPayload = Partial<TActivitiePayload>;

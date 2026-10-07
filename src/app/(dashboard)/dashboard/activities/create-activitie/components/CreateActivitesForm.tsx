@@ -1,7 +1,7 @@
 "use client";
 
-import { createPost } from "@/service/post";
-import { TPostPayload } from "@/types/post";
+import { createActivitie } from "@/service/Activities";
+import { TActivitiePayload } from "@/types/Activities";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -12,7 +12,7 @@ import RichTextEditor from "@/app/(dashboard)/components/RechTextEditor";
 import { toast } from "sonner";
 
 // Form-er type: imageUrl string[] er bodole { url, publicId } array (useFieldArray-er jonno)
-type CreatePostFormValues = Omit<TPostPayload, "imageUrl" | "videoUrl"> & {
+type CreatePostFormValues = Omit<TActivitiePayload, "imageUrl" | "videoUrl"> & {
   images: TImageValue[];
   videoUrl: string;
 };
@@ -22,7 +22,7 @@ const sectionClass =
 
 const emptyImage: TImageValue = { url: "", publicId: "" };
 
-export default function CreatePostForm() {
+export default function CreateActiviteForm() {
   const router = useRouter();
   const [serverError, setServerError] = useState<string | null>(null);
   const [uploadingIds, setUploadingIds] = useState<string[]>([]);
@@ -63,19 +63,19 @@ export default function CreatePostForm() {
     setServerError(null);
 
     const { images, ...rest } = values;
-    const payload: TPostPayload = {
+    const payload: TActivitiePayload = {
       ...rest,
       // shudhu upload hoye jawa image-er url pathai
       imageUrl: images.map((image) => image.url).filter(Boolean),
     };
 
     try {
-      const res = await createPost(payload);
+      const res = await createActivitie(payload);
       if (res?.success) {
         toast.success("Post has been created");
       }
 
-      router.push("/dashboard/posts");
+      router.push("/dashboard/activities");
       router.refresh();
     } catch (error) {
       // Backend-er Zod validation error ekhane message hishebe ashbe

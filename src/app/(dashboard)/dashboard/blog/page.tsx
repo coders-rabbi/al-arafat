@@ -1,6 +1,6 @@
-import { getAllPosts } from "@/service/post";
+import { getAllActivitie } from "@/service/Activities";
 import PageHeader from "../activities/components/PageHeader";
-import PostsTable from "../activities/components/PostTable";
+import PostsTable from "../activities/components/ActivitieTable";
 import { getAllBlogs } from "@/service/blog";
 import BlogTable from "./components/BlogTable";
 

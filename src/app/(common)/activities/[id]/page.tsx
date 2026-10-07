@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getActivityById } from "@/service/post";
+import { getActivityById } from "@/service/Activities";
 import ActivitePageHeader from "../components/ActivitesPageHeader";
 import ActivityDetails from "../components/ActivitiesDetails";
 

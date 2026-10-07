@@ -1,10 +1,10 @@
-import { getAllPosts } from "@/service/post";
+import { getAllActivitie } from "@/service/Activities";
 import PageHeader from "./components/PageHeader";
-import PostsTable from "./components/PostTable";
+import ActivitieTable from "./components/ActivitieTable";
 
 export default async function ProjectsPage() {
-    const res = await getAllPosts();
-    const posts = res.data;
+    const res = await getAllActivitie();
+    const activitie = res.data;
 
   return (
     <div className="space-y-5">
@@ -12,15 +12,15 @@ export default async function ProjectsPage() {
         title="Projects"
         description="Manage all your project posts."
         actionLabel="+ New Post"
-        actionHref="/dashboard/posts/create-post"
+        actionHref="/dashboard/activities/create-activitie"
       />
 
       <section className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
         <h2 className="font-semibold">Previous Posts</h2>
         <p className="mb-4 text-xs text-gray-500">
-          Showing {posts?.length} recent posts
+          Showing {activitie?.length} recent posts
         </p>
-        <PostsTable posts={posts} />
+        <ActivitieTable activities={activitie} />
       </section>
     </div>
   );

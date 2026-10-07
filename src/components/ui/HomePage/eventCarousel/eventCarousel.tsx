@@ -1,11 +1,11 @@
-import { getAllPosts } from "@/service/post";
-import { TPost } from "@/types/post";
+import { getAllActivitie } from "@/service/Activities";
+import { TActivitie } from "@/types/Activities";
 import EventCarouselClient from "./EventCarouselClient";
 import Link from "next/link";
 
 export async function EventCarousel() {
-  const res = await getAllPosts();
-  const blogs: TPost[] = res?.data || [];
+  const res = await getAllActivitie();
+  const blogs: TActivitie[] = res?.data || [];
 
   return (
     <section className="mx-auto w-full max-w-7xl px-4">

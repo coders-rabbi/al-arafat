@@ -5,7 +5,7 @@ import { Controller, useForm, useWatch } from "react-hook-form";
 import { ImageIcon, Video, X } from "lucide-react";
 import ImageUploader, {
   TImageValue,
-} from "@/app/(dashboard)/dashboard/activities/create-post/components/ImageUploader";
+} from "@/app/(dashboard)/dashboard/activities/create-activitie/components/ImageUploader";
 import { getYouTubeId, getYouTubeThumbnail } from "@/lib/youtube";
 import { createMedia } from "@/service/media";
 import { toast } from "sonner";
