@@ -4,18 +4,18 @@ import ActivitePageHeader from "../components/ActivitesPageHeader";
 import ActivityDetails from "../components/ActivitiesDetails";
 
 type PageProps = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ ActiviteId: string }>;
 };
 
 const Page = async ({ params }: PageProps) => {
-  const { id } = await params;
+  const { ActiviteId } = await params;
 
   let data = null;
   try {
-    const res = await getActivityById(id);
+    const res = await getActivityById(ActiviteId);
     data = res?.data;
   } catch (error) {
-    console.error("getActivityById failed:", id, error);
+    console.error("getActivityById failed:", ActiviteId, error);
   }
 
   if (!data) notFound();

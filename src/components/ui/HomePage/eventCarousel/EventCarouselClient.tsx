@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Autoplay from "embla-carousel-autoplay";
 import { Rocket } from "lucide-react";
 
@@ -15,7 +16,11 @@ import {
 } from "@/components/ui/carousel";
 import { TActivitie } from "@/types/Activities";
 
-export default function EventCarouselClient({ blogs }: { blogs: TActivitie[] }) {
+export default function EventCarouselClient({
+  blogs,
+}: {
+  blogs: TActivitie[];
+}) {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true }),
   );
@@ -29,49 +34,58 @@ export default function EventCarouselClient({ blogs }: { blogs: TActivitie[] }) 
       opts={{ align: "start", loop: true }}
     >
       <CarouselContent>
-        {blogs.map((item) => (
-          <CarouselItem
-            key={item._id}
-            className="basis-full md:basis-1/2 lg:basis-1/3"
-          >
-            <div className="h-full p-2">
-              <Card className="flex h-full cursor-pointer flex-col overflow-hidden rounded-[20px] border-none shadow-md transition hover:shadow-xl">
-                {/* Image */}
-                <div className="relative h-[200px] w-full">
-                  <Image
-                    src={item.imageUrl[0]}
-                    alt={item.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+        {blogs.map((item) => {
+          const card = (
+            <Card className="flex h-full cursor-pointer flex-col overflow-hidden rounded-[20px] border-none shadow-md transition hover:shadow-xl">
+              {/* Image */}
+              <div className="relative h-[200px] w-full">
+                <Image
+                  src={item.imageUrl[0]}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
 
-                {/* Content */}
-                <div className="flex flex-1 flex-col p-4">
-                  <p className="mb-2.5 flex items-center gap-1.5 text-sm font-medium text-[#D08545]">
-                    <Rocket size={18} /> Regular Activities
-                  </p>
+              {/* Content */}
+              <div className="flex flex-1 flex-col p-4">
+                <p className="mb-2.5 flex items-center gap-1.5 text-sm font-medium text-[#D08545]">
+                  <Rocket size={18} /> Regular Activities
+                </p>
 
-                  <h3 className="mb-2 line-clamp-2 h-[60px] text-xl font-bold">
-                    {item.title}
-                  </h3>
+                <h3 className="mb-2 line-clamp-2 h-[60px] text-xl font-bold">
+                  {item.title}
+                </h3>
 
-                  <div
-                    className="line-clamp-3 text-sm text-gray-600 mb-2"
-                    dangerouslySetInnerHTML={{ __html: item.content }}
-                  />
+                <div
+                  className="mb-2 line-clamp-3 text-sm text-gray-600"
+                  dangerouslySetInnerHTML={{ __html: item.content }}
+                />
 
-                  <button
-                    type="button"
-                    className="mt-auto w-full rounded-[10px] border border-secondary py-2  text-secondary transition bg-[#008e48] hover:bg-[#008e47e2] hover:text-white"
-                  >
-                    View More
-                  </button>
-                </div>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
+                {/* Link-এর ভেতরে button দেওয়া invalid HTML, তাই span ব্যবহার করা হয়েছে */}
+                <span className="mt-auto block w-full rounded-[10px] border border-secondary bg-[#008e48] py-2 text-center text-secondary transition hover:bg-[#008e47e2] hover:text-white">
+                  View More
+                </span>
+              </div>
+            </Card>
+          );
+
+          return (
+            <CarouselItem
+              key={item._id}
+              className="basis-full md:basis-1/2 lg:basis-1/3"
+            >
+              <div className="h-full p-2">
+                <Link
+                  href={`/activities/${item?._id}`}
+                  className="block h-full"
+                >
+                  {card}
+                </Link>
+              </div>
+            </CarouselItem>
+          );
+        })}
       </CarouselContent>
 
       <div className="hidden md:block">
