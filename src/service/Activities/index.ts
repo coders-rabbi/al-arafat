@@ -1,4 +1,8 @@
-import { TActivitie, TActivitiePayload, TUpdatePostPayload } from "@/types/Activities";
+import {
+  TActivitie,
+  TActivitiePayload,
+  TUpdatePostPayload,
+} from "@/types/Activities";
 import { apiClientRaw, ApiResponse } from "../apiClient";
 
 export const createActivitie = async (
@@ -43,7 +47,7 @@ export const updateActivitie = async (
 export const deleteActivitie = async (
   activitieId: string,
 ): Promise<ApiResponse<null>> => {
-  return apiClientRaw<null>(`/activities/${activitieId}`, {
-    method: "DELETE",
+  return apiClientRaw<null>(`/activities/${activitieId}/delete`, {
+    method: "PATCH",
   });
 };
