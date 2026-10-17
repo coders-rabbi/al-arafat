@@ -1,7 +1,8 @@
+import { TProject } from "@/types/project";
 
 
 type Props = {
-  projects: any;
+  projects: TProject[];
 };
 
 const ProjectTable = ({ projects }: Props) => {
