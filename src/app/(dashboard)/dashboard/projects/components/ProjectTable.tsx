@@ -27,7 +27,7 @@ const ProjectTable = ({ projects }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {projects.map((p: any) => (
+          {projects.map((p) => (
             <tr
               key={p._id}
               className="border-b border-gray-100 last:border-0 dark:border-gray-800"
