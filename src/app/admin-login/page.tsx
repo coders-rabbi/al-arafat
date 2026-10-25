@@ -3,17 +3,15 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { Hind_Siliguri, Newsreader } from "next/font/google";
 import { adminLogin } from "@/service/auth";
+import { Hind_Siliguri } from "next/font/google";
 
 const body = Hind_Siliguri({
   subsets: ["latin", "bengali"],
   weight: ["400", "500", "600"],
+  display: "swap",
 });
-const display = Newsreader({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-});
+const display = body; // heading এও একই font
 
 type TLoginForm = {
   email: string;
