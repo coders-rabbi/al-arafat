@@ -14,3 +14,9 @@ export const adminLogin = async (
     body: JSON.stringify(payload),
   });
 };
+
+export const adminLogout = async (): Promise<ApiResponse<null>> => {
+  return apiClientRaw<null>("/auth/logout", {
+    method: "POST",
+  });
+};
