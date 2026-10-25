@@ -1,6 +1,6 @@
 const BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL ||
-  "https://gen-voice-backend.onrender.com/api/v1";
+  "https://al-arafatfoundation-server.onrender.com/api/v1";
 
 export type ApiResponse<T> = {
   statusCode: number;
@@ -37,6 +37,7 @@ export const apiClientRaw = async <T>(
   const response = await fetch(url, {
     ...options,
     headers: buildHeaders(options),
+    credentials: "include", // cookie save/send korar jonno
   });
 
   let json: ApiResponse<T> | null = null;
