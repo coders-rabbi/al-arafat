@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import logo from "@/assets/svg/logo.svg";
 import { adminLogout } from "@/service/auth";
-
+import { GiExitDoor } from "react-icons/gi";
 const links = [
   { href: "/dashboard", label: "Overview", icon: "📊" },
   { href: "/dashboard/projects", label: "Projects", icon: "📁" },
@@ -72,10 +72,10 @@ export default function Sidebar() {
           type="button"
           onClick={handleLogout}
           disabled={loggingOut}
-          className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-red-600 outline-none transition hover:bg-red-50 focus-visible:ring-2 focus-visible:ring-red-500/40 disabled:cursor-not-allowed disabled:opacity-60 dark:text-red-400 dark:hover:bg-red-950"
+          className="flex w-full items-center justify-between gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-red-600 outline-none transition hover:bg-red-50 focus-visible:ring-2 focus-visible:ring-red-500/40 disabled:cursor-not-allowed disabled:opacity-60 dark:text-red-400 dark:hover:bg-red-950"
         >
-          <span>🚪</span>
           {loggingOut ? "Logging out..." : "Logout"}
+          <GiExitDoor />
         </button>
       </div>
     </aside>
