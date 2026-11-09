@@ -1,6 +1,6 @@
 const BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL ||
-  "https://al-arafatfoundation-server.onrender.com/api/v1";
+  "https://api.alarafatfoundation.org/api/v1";
 
 export type ApiResponse<T> = {
   statusCode: number;
