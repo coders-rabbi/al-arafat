@@ -35,6 +35,7 @@ export const apiClientRaw = async <T>(
   const url = BASE_URL ? `${BASE_URL}${endpoint}` : endpoint;
 
   const response = await fetch(url, {
+    cache: "no-store",
     ...options,
     headers: buildHeaders(options),
     credentials: "include", // cookie save/send korar jonno
